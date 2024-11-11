@@ -15,8 +15,8 @@ NOTE: PROCEDURE PRINTTO used (Total process time):
 79            Purpose : This program is designed to practice proc print and proc freq
 80         *****************************************************************************/
 81         
-82         %put %upcase(no)TE: Program being run by 730784042;
-NOTE: Program being run by 730784042
+82         %put %upcase(no)TE: Program being run by 73XXXXXX;
+NOTE: Program being run by 73XXXXXX
 83         options nofullstimer;
 84         
 85         
