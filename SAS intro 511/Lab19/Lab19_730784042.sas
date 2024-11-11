@@ -1,4 +1,4 @@
-proc printto log='/home/u63982087/BIOS511/Logs/lab19_730784042.log' new;run;
+proc printto log='/home/u63982087/BIOS511/Logs/lab19_73XXXXXX.log' new;run;
 
 
 /************************************************************************************
@@ -13,14 +13,14 @@ proc printto log='/home/u63982087/BIOS511/Logs/lab19_730784042.log' new;run;
    Purpose : This program is a practice of FIRST. LAST. and RETAIN Statement
 **************************************************************************************/
 
-%put %upcase(no)TE: Program being run by 730784042;
+%put %upcase(no)TE: Program being run by 73XXXXXX;
 options nofullstimer;
 
 
 libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly; 
 run; /*access a libref in class folder*/
 
-ods pdf file = '/home/u63982087/BIOS511/Output/lab19_730784042.pdf' startpage = yes;
+ods pdf file = '/home/u63982087/BIOS511/Output/lab19_73XXXXXX.pdf' startpage = yes;
 /* create a pdf file */
 
 
