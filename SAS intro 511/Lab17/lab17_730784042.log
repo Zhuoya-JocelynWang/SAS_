@@ -1,0 +1,185 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              307.00k
+      OS Memory           19104.00k
+      Timestamp           10/28/2024 02:32:08 PM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     26
+      Page Swaps                        0
+      Voluntary Context Switches        6
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+72         
+73         /************************************************************************************
+74            Project: BIOS 511
+75         
+76            Program Name: Lab17
+77         
+78            Author : Jocelyn(Zhuoya) Wang
+79         
+80            Date Created: 2024.10.28
+81         
+82            Purpose : This program is a practice of DO-loops
+83         **************************************************************************************/
+84         
+85         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+86         options nofullstimer;
+87         
+88         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+89         run; /*access a libref in class folder*/
+90         
+91         ods pdf file = '/home/u63982087/BIOS511/Output/lab17_730784042.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab17_730784042.pdf", printer "PDF".
+92         /* create a pdf file */
+93         
+94         
+95         /***** Question 1 *****/
+96         Data Q1_dayset;/*create new temp dataset*/
+97           do date_obs = '01AUG2024'd TO '31DEC2024'd;/*range of date*/
+98              ran_day = rand('geometric', 0.2);/*apply geometric distribution
+99                                     with 0.2 to genereate random variable*/
+100             output;/*output*/
+101          end;
+2                                                          The SAS System                       Monday, October 28, 2024 10:32:08 AM
+
+102        
+103          format date_obs date9.;/*formate of date*/
+104        run;
+
+NOTE: The data set WORK.Q1_DAYSET has 153 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+105        
+106        /***** Question 2 *****/
+107        proc means data = Q1_dayset; /*apply proc means*/
+108          where month(date_obs) = 10;/*only use the date in October*/
+109          var ran_day;/* analysis on ran_day*/
+110          title "Q2: Table of Ran_Day with the Month of October";
+111        run;
+
+NOTE: There were 31 observations read from the data set WORK.Q1_DAYSET.
+      WHERE MONTH(date_obs)=10;
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+112        
+113        
+114        /***** Question 3 *****/
+115        data tempq3_stocks;/* temp dataset from sashelp.stocks*/
+116          set sashelp.stocks;
+117          where date = '02Aug2004'd and stock = "IBM";/*subset to 02/08/2004 and IBM*/
+118        
+119          do i = 1 to 5;/*create 5obs*/
+120             adjclose = (adjclose + 0.04*adjclose);/*increase adjclose by 4% each year*/
+121             date = intnx('year', date, 1, "same");/*same date increase year*/
+122             output;
+123          end;
+124          keep stock date adjclose;/*only keep these three variables*/
+125        run;
+
+NOTE: There were 1 observations read from the data set SASHELP.STOCKS.
+      WHERE (date='02AUG2004'D) and (stock='IBM');
+NOTE: The data set WORK.TEMPQ3_STOCKS has 5 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+126        
+127        /***** Question 4 *****/
+128        proc print data = tempq3_stocks;/*proc print the result table from last question*/
+129        title "Q4: Five Observaton From Stocks Dataset";
+130        run;
+
+NOTE: There were 5 observations read from the data set WORK.TEMPQ3_STOCKS.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+3                                                          The SAS System                       Monday, October 28, 2024 10:32:08 AM
+
+      
+
+131        
+132        
+133        /***** Question 5 *****/
+134        data q5_stocks;/* temp dataset from sashelp.stocks*/
+135          set sashelp.stocks;
+136          where date = '02Aug2004'd and stock = "IBM";/*subset to 02/08/2004 and IBM*/
+137        
+138          do until (adjclose > 300);/*stop until adjclose > 300*/
+139             adjclose = (adjclose + 0.04*adjclose);/*increase adjclose by 4% each year*/
+140             date = intnx('year', date, 1, "same");/*same date increase year*/
+141             output;
+142          end;
+143          keep stock date adjclose;/*only keep these three variables*/
+144        run;
+
+NOTE: There were 1 observations read from the data set SASHELP.STOCKS.
+      WHERE (date='02AUG2004'D) and (stock='IBM');
+NOTE: The data set WORK.Q5_STOCKS has 33 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+145        
+146        
+147        /***** Question 6 *****/
+148        proc print data = q5_stocks; /*proc print last question*/
+149        title "Q6: IBM Stocks with Adjclose > 300";
+150        run;
+
+NOTE: There were 33 observations read from the data set WORK.Q5_STOCKS.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+151        
+152        
+153        /***** Question 7 *****/
+154        data _null_; /*create null set from prosteate dataset*/
+155          set classlib.prostate;
+NOTE: Data file CLASSLIB.PROSTATE.DATA is in a format that is native to another host, or the file encoding does not match the 
+      session encoding. Cross Environment Data Access will be used, which might require additional CPU resources and might reduce 
+      performance.
+156          if 40 <= age <= 50 then putlog patientnumber =;/*compute patients
+157                                                 number with age b/w 40 and 50*/
+158        run;
+
+PatientNumber=49
+PatientNumber=153
+PatientNumber=194
+PatientNumber=265
+PatientNumber=485
+NOTE: There were 506 observations read from the data set CLASSLIB.PROSTATE.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+4                                                          The SAS System                       Monday, October 28, 2024 10:32:08 AM
+
+      cpu time            0.00 seconds
+      
+
+159        
+160        
+161        ods pdf close;/*close the pdf file*/
+NOTE: ODS PDF printed 3 pages to /home/u63982087/BIOS511/Output/lab17_730784042.pdf.
+162        ods _all_ close;
+163        
+164        proc printto; run;
+

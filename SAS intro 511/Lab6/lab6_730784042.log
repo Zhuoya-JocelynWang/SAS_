@@ -1,0 +1,194 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              282.81k
+      OS Memory           19104.00k
+      Timestamp           09/12/2024 03:42:25 PM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     21
+      Page Swaps                        0
+      Voluntary Context Switches        9
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+70         
+71         /********************************************************************************
+72            Project: BIOS 511
+73         
+74            Program Name: Lab6
+75         
+76            Author : Jocelyn(Zhuoya) Wang
+77         
+78            Date Created: 2024.09.09
+79         
+80            Purpose : This program is designed to practice proc means and proc univariate
+81         *********************************************************************************/
+82         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+83         options nofullstimer;
+84         
+85         
+86         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+87         run; /*access a libref in class folder*/
+88         
+89         
+90         /* Question 1*/
+91         
+92         proc means data = classlib.primary_biliary_cirrhosis std median mode nmiss lclm p25;
+93             title "Six Statistics Summary for Numeric Variables";
+94         run;
+
+NOTE: There were 418 observations read from the data set CLASSLIB.PRIMARY_BILIARY_CIRRHOSIS.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.05 seconds
+      
+
+94       !       /* 6 statistics for all numeric variables*/
+2                                                          The SAS System                   Thursday, September 12, 2024 11:42:25 AM
+
+95         
+96         
+97         /* Question 2*/
+98         
+99         proc means data = classlib.diabetes n sum mean; /* generate count sum and mean for waist&hip*/
+100           class frame; /* generate the result by frame*/
+101           var waist hip;/* only display waist and hip*/
+102           title "Statistical Table for Waist & Hip by Frame";
+103        run;
+
+NOTE: There were 403 observations read from the data set CLASSLIB.DIABETES.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+104        
+105        
+106        /* Question 3*/
+107        
+108        proc means data = sashelp.orsales noprint nway;/*suppress printout & only display highest_type_value*/
+109        
+110           where year = 2002; /* use data where year = 2002*/
+111        
+112           class product_line product_category; /*generate stats by comb of theses two variables*/
+113           var quantity profit total_retail_price;/*display these three variables*/
+114        
+115           output out = stats_sum sum = /autoname;/*make an output dataset named 'stats_sum', and
+116                                                  the variables' name are automatically given*/
+117        run;
+
+NOTE: There were 228 observations read from the data set SASHELP.ORSALES.
+      WHERE year=2002;
+NOTE: The data set WORK.STATS_SUM has 12 observations and 7 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.02 seconds
+      
+
+118        
+119        /* Question 4 */
+120        
+121        proc print data = work.stats_sum noobs; /*use the newly generated dataset from Q3
+122                                                 without displaying obs number*/
+123        
+124           where product_line = 'Sports';/*use the data where product_line is sports*/
+125        
+126           format profit_sum dollar12.2; /*change the format of profit_sum*/
+127           var product_line product_category profit_sum; /*only display these three variables*/
+128        
+129           title "Profit Sum of Sports Product line";
+130        run;
+
+NOTE: There were 8 observations read from the data set WORK.STATS_SUM.
+      WHERE product_line='Sports';
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+3                                                          The SAS System                   Thursday, September 12, 2024 11:42:25 AM
+
+      
+
+131        
+132        
+133        /* Question 5 */
+134        
+135        proc means data = sashelp.orsales noprint nway; /*suppress printout & only display highest_type_value*/
+136        
+137           where year = 2002;    /* use data where year = 2002*/
+138        
+139           class product_line product_category;/*generate stats by comb of theses two variables*/
+140           var quantity profit total_retail_price;/*display these three variables*/
+141        
+142           output out = my_stats_sum /* create another dataset named 'my_states_sum'*/
+143        
+144           sum(profit total_retail_price) = sum_profit sum_retail /* sum of profit and trp and rename them*/
+145           mean(profit total_retail_price) = mean_profit mean_retail; /*mean of profit &trp and rename them*/
+146        run;
+
+NOTE: There were 228 observations read from the data set SASHELP.ORSALES.
+      WHERE year=2002;
+NOTE: The data set WORK.MY_STATS_SUM has 12 observations and 8 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+147        
+148        
+149        /* Question 6*/
+150        
+151        proc sort data = classlib.diabetes out = work.dibs; /* sort dataset by gender*/
+152             by gender;
+153        run;
+
+NOTE: There were 403 observations read from the data set CLASSLIB.DIABETES.
+NOTE: The data set WORK.DIBS has 403 observations and 19 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+154        
+155        proc univariate data = work.dibs cibasic; /*generate the confidence limit by gender */
+156            by gender;
+157            var stab_glu; /*only display stab_glu and use it as the analysis variable*/
+158            title "Confidence Limits Tables of Stabilized Glucose by Gender";
+159        run;
+
+NOTE: PROCEDURE UNIVARIATE used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.08 seconds
+      
+
+160        
+161        
+162        /* Question 7*/
+163        
+4                                                          The SAS System                   Thursday, September 12, 2024 11:42:25 AM
+
+164        proc univariate data = classlib.diabetes noprint ; /*suppress output*/
+165            class gender; /*sort data by gender*/
+166        
+167            histogram chol;/* make hisogram for cholesterol*/
+168            inset mean std/ pos = ne; /*inset description(mean & sd) to
+169                                      the hisogram on the northeast corner*/
+170        
+171            title "Histograms for Cholesterol by Gender";
+172        run;
+
+NOTE: PROCEDURE UNIVARIATE used (Total process time):
+      real time           2.07 seconds
+      cpu time            0.04 seconds
+      
+
+173        
+174        proc printto; run;
+

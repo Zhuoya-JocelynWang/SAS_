@@ -1,0 +1,202 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              306.21k
+      OS Memory           19104.00k
+      Timestamp           11/06/2024 03:23:39 PM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     23
+      Page Swaps                        0
+      Voluntary Context Switches        6
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+72         
+73         /************************************************************************************
+74            Project: BIOS 511
+75         
+76            Program Name: Lab20
+77         
+78            Author : Jocelyn(Zhuoya) Wang
+79         
+80            Date Created: 2024.11.06
+81         
+82            Purpose : This program is a practice of DATA Step Statements
+83         **************************************************************************************/
+84         
+85         
+86         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+87         options nofullstimer;
+88         
+89         
+90         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+91         run; /*access a libref in class folder*/
+92         
+93         ods pdf file = '/home/u63982087/BIOS511/Output/lab20_730784042.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab20_730784042.pdf", printer "PDF".
+94         /* create a pdf file */
+95         
+96         
+97         /***** Question 1 *****/
+98         proc sort data = classlib.budget out = budget;
+99         by region; /*sort budget dataset by region*/
+100        run;
+
+2                                                          The SAS System                   Wednesday, November  6, 2024 10:23:40 AM
+
+NOTE: There were 12 observations read from the data set CLASSLIB.BUDGET.
+NOTE: The data set WORK.BUDGET has 12 observations and 8 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+101        
+102        
+103        proc transpose data = budget
+104                       out = trans_budget(rename = (_name_ = year));
+105                       /*transpose data to obs, rename the newvariable*/
+106          by region; /*sort data by region*/
+107          ID department;/* obs became variable name*/
+108          var yr20: ;/*name the variables whose value was transposed*/
+109        run;
+
+NOTE: There were 12 observations read from the data set WORK.BUDGET.
+NOTE: The data set WORK.TRANS_BUDGET has 15 observations and 6 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+110        
+111        
+112        /***** Question 2 *****/
+113        proc print data = trans_budget;
+114          where region = 3; /*subset to obs where region =3*/
+115          title "Q2: Budget Table Of Region 3";
+116        run;
+
+NOTE: There were 5 observations read from the data set WORK.TRANS_BUDGET.
+      WHERE region=3;
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+117        
+118        
+119        
+120        /***** Question 3 *****/
+121        proc sort data = sashelp.stocks out = stocks;
+122         by date;/*sort stocks by date*/
+123        run;
+
+NOTE: There were 699 observations read from the data set SASHELP.STOCKS.
+NOTE: The data set WORK.STOCKS has 699 observations and 8 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+124        
+125        proc transpose data = stocks
+126                       out = trans_stocks(drop = _name_);
+127                       /*transpose stocks data and drop the new variable _nanem_*/
+3                                                          The SAS System                   Wednesday, November  6, 2024 10:23:40 AM
+
+128            by date; /*sort by date*/
+129            ID stock;/*transpose each stock as new var*/
+130            var close;/*name the var whose value was transposed*/
+131        run;
+
+NOTE: There were 699 observations read from the data set WORK.STOCKS.
+NOTE: The data set WORK.TRANS_STOCKS has 233 observations and 4 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+132        
+133        /***** Question 4 *****/
+134        proc sgplot data = trans_stocks;/*apply sgplot*/
+135         series x=date  y=intel; /*make series plot with date as x-axis and intel as y-axis*/
+136         title "Q4:  Closing Value of Intel Stock Over Time";
+137        run;
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           2.15 seconds
+      cpu time            0.09 seconds
+      
+NOTE: The column format DATE7 is replaced by an auto-generated format on the axis.
+NOTE: The column format DATE7 is replaced by an auto-generated format on the axis.
+NOTE: There were 233 observations read from the data set WORK.TRANS_STOCKS.
+
+138        
+139        
+140        /***** Question 5 *****/
+141        
+142        Data q5_budget; /*create new dataset from budget*/
+143         set classlib.budget;
+144         where department = "B";/*subset to department = B*/
+145        
+146         array years{5} yr2016 - yr2020; /*create a array of years with 5 elements*/
+147        
+148         do i = 1 to 5; /*loop to hold year and budget variable*/
+149         year = 2015 + i;
+150         budget = years{i};
+151        
+152        
+153         format budget dollar10.;/*apply new format*/
+154        
+155         keep region qtr year budget; /*only keep these variabels*/
+156        
+157                label /*apply labels*/
+158                      region = "Region"
+159                      qtr = "Quarter"
+160                      year = "Year"
+161                      budget= "Budget Value";
+162                output;
+163            end;
+164        
+165            drop i department yr2016-yr2020;/*drop vars*/
+166        run;
+
+NOTE: There were 3 observations read from the data set CLASSLIB.BUDGET.
+4                                                          The SAS System                   Wednesday, November  6, 2024 10:23:42 AM
+
+      WHERE department='B';
+NOTE: The data set WORK.Q5_BUDGET has 15 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+167        
+168        
+169        /***** Question 6*****/
+170        ods select Variables; /*only select the variables table*/
+171        proc contents data = q5_budget; /*conduct proc contents*/
+172         title "Q6: Variables Table from Q5 Budget Dataset";
+173        run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+174        
+175        
+176        ods pdf close;/*close the pdf file*/
+NOTE: ODS PDF printed 3 pages to /home/u63982087/BIOS511/Output/lab20_730784042.pdf.
+177        ods _all_ close;
+178        
+179        proc printto; run;
+

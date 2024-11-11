@@ -1,0 +1,136 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              305.34k
+      OS Memory           19104.00k
+      Timestamp           10/04/2024 05:46:21 PM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     26
+      Page Swaps                        0
+      Voluntary Context Switches        9
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+71         
+72         
+73         /************************************************************************************
+74            Project: BIOS 511
+75         
+76            Program Name: Lab10
+77         
+78            Author : Jocelyn(Zhuoya) Wang
+79         
+80            Date Created: 2024.09.30
+81         
+82            Purpose : This program is a practice of multiple type of Proc SGPlots
+83         **************************************************************************************/
+84         
+85         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+86         options nofullstimer;
+87         
+88         
+89         
+90         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+91         run; /*access a libref in class folder*/
+92         
+93         
+94         ods pdf file = '/home/u63982087/BIOS511/Output/lab10_730784042.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab10_730784042.pdf", printer "PDF".
+95         /* create a pdf file */
+96         
+97         
+98         /***** Question 1 *****/
+99         
+100        proc sgplot data = classlib.depression;
+101          hbar education/ response = beddays
+2                                                          The SAS System                       Friday, October  4, 2024 01:46:21 PM
+
+102                          stat = mean
+103                          dataskin = gloss;/*create horizontal bar, education is categrorical
+104                          variable, beddays is response variable, request mean, and change skin type*/
+105        
+106          title "Barplot of Beddays by Education Level";
+107          xaxis label = "Mean Bed Days";/*name xaxis*/
+108        run;
+
+NOTE: Since no format is assigned, the numeric category variable will use the default of BEST6.
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           2.45 seconds
+      cpu time            0.11 seconds
+      
+NOTE: There were 49 observations read from the data set CLASSLIB.DEPRESSION.
+
+109        
+110        
+111        /***** Question 2 *****/
+112        
+113        proc sgplot data = sashelp.cars;
+114          vbar type/ response = msrp stat =sum transparency = .3;
+115          vbar type/ response = invoice stat = sum transparency =.3 barwidth=.5;
+116        
+117          /*2 vertical bar plotsof type, differnt response varibale, sum of invoce, msrp,
+118          adjust the transparency of bar plot, and adjust with barwidth*/
+119        
+120          yaxis label = "MSPR & Invoice";/*Change yaxis name*/
+121          title "Overlaid Vertical Barplot of MSRP and Invoice by Type ";
+122        run;
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           0.20 seconds
+      cpu time            0.05 seconds
+      
+NOTE: There were 428 observations read from the data set SASHELP.CARS.
+
+123        
+124        
+125        /***** Question 3 *****/
+126        proc means data = classlib.vs noprint nway;/*suppress the printing of any output*/
+127           class vstestcd vstest visitnum visit;/*class the data by these variables*/
+128           var vsstresn;/*vsstresn is the analysed variable*/
+129           output out = my_vs mean = vs_mean; /*output the mean statitics*/
+130        run;
+
+NOTE: There were 15050 observations read from the data set CLASSLIB.VS.
+NOTE: The data set WORK.MY_VS has 25 observations and 7 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+131        
+132        /***** Question 4 *****/
+133        proc sgplot data = my_vs noautolegend; /*plot the data without legend*/
+134           where vstestcd = "HR";/*only use the data where vstestcd = HR*/
+135           series x = visit y= vs_mean; /*series plot where x is visit and y is mean*/
+136           scatter x =visit y = vs_mean/markerattrs=(symbol = star);/*overlay scatter plot with
+3                                                          The SAS System                       Friday, October  4, 2024 01:46:24 PM
+
+137                                                                visit variable, and the mean on y,
+138                                                                change the dot to star*/
+139           yaxis values = (59.9 to 60.4 by .05) label ="Heart Rate";/*adjust scale of yaxis, and change the label*/
+140           title "Mean Heart Rate by Visit ";
+141        run;
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           0.19 seconds
+      cpu time            0.04 seconds
+      
+NOTE: There were 6 observations read from the data set WORK.MY_VS.
+      WHERE vstestcd='HR';
+
+142        
+143        
+144        ods pdf close;/*close the pdf file*/
+NOTE: ODS PDF printed 3 pages to /home/u63982087/BIOS511/Output/lab10_730784042.pdf.
+145        ods _all_ close;
+146        
+147        proc printto; run;
+

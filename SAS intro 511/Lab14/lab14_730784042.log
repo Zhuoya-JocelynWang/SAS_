@@ -1,0 +1,344 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              305.68k
+      OS Memory           19104.00k
+      Timestamp           10/16/2024 11:22:00 PM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     26
+      Page Swaps                        0
+      Voluntary Context Switches        9
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+71         
+72         /************************************************************************************
+73            Project: BIOS 511
+74         
+75            Program Name: Lab14
+76         
+77            Author : Jocelyn(Zhuoya) Wang
+78         
+79            Date Created: 2024.10.14
+80         
+81            Purpose : This program is a practice of DATA Step Statements
+82         **************************************************************************************/
+83         
+84         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+85         options nofullstimer;
+86         
+87         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+88         run; /*access a libref in class folder*/
+89         
+90         libname mylib '/home/u63982087/BIOS511/Data';
+NOTE: Libref MYLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/BIOS511/Data
+91         /*accesse a libref that points to the Data foler under my own BIOS511 folder*/
+92         run;
+93         
+94         
+95         ods pdf file = '/home/u63982087/BIOS511/Output/lab14_730784042.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab14_730784042.pdf", printer "PDF".
+96         /* create a pdf file */
+97         
+98         
+2                                                          The SAS System                    Wednesday, October 16, 2024 07:22:00 PM
+
+99         /***** Question 1 *****/
+100        proc sort data = classlib.dm out = dm; by usubjid;
+
+NOTE: There were 602 observations read from the data set CLASSLIB.DM.
+NOTE: The data set WORK.DM has 602 observations and 15 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+101        proc sort data = classlib.ae out = ae; by usubjid;
+102        run;
+
+NOTE: There were 1177 observations read from the data set CLASSLIB.AE.
+NOTE: The data set WORK.AE has 1177 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+103        /* sort dm and ae dataset by usubjid*/
+104        
+105        data mylib.aedm;/*permanent new data*/
+106          merge dm ae;/*merge the two dataset above*/
+107          by usubjid;/*by the variable usubjid*/
+108        run;
+
+NOTE: There were 602 observations read from the data set WORK.DM.
+NOTE: There were 1177 observations read from the data set WORK.AE.
+NOTE: The data set MYLIB.AEDM has 1317 observations and 23 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+109        
+110        
+111        /***** Question 2 *****/
+112        ods exclude enginehost variables;/*exclude enginehost and var list from the output*/
+113        
+114        proc contents data = mylib.aedm;/* provide information about my_lb*/
+115        title "Q2 Table: Contents of Permanent AEDM Dataset";
+116        run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+117        
+118        ods select all;/*reset ods to avoding affect the follwoing output*/
+119        
+120        
+121        /***** Question 3 *****/
+122        
+123        proc sort data = classlib.dm out = dm; by usubjid;
+
+NOTE: There were 602 observations read from the data set CLASSLIB.DM.
+3                                                          The SAS System                    Wednesday, October 16, 2024 07:22:00 PM
+
+NOTE: The data set WORK.DM has 602 observations and 15 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+124        proc sort data = classlib.ae out = ae; by usubjid;
+125        run;
+
+NOTE: There were 1177 observations read from the data set CLASSLIB.AE.
+NOTE: The data set WORK.AE has 1177 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+126        /* sort dm and ae dataset by usubjid*/
+127        
+128        data temp_aedm; /* create temporary dataset*/
+129          merge dm(in = ind) ae(in = ina);/*merge two data and make a indicator for two sets*/
+130          by usubjid;/* by variable usubjid*/
+131          if ind = 1 and ina =0; /* subject only in dm dataset not in ae set*/
+132          keep usubjid sex age;/* keep these three variables*/
+133        run;
+
+NOTE: There were 602 observations read from the data set WORK.DM.
+NOTE: There were 1177 observations read from the data set WORK.AE.
+NOTE: The data set WORK.TEMP_AEDM has 140 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+134        
+135        
+136        /***** Question 4 *****/
+137        proc print data = temp_aedm (obs = 10);/*privide first 10 variables*/
+138        title " Q4 Table: First 10 Obsercation of Temporary AEDM Dataset";
+139        run;
+
+NOTE: There were 10 observations read from the data set WORK.TEMP_AEDM.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+140        
+141        
+142        /***** Question 5 *****/
+143        proc sort data = classlib.dm out = dm; by usubjid;
+
+NOTE: There were 602 observations read from the data set CLASSLIB.DM.
+NOTE: The data set WORK.DM has 602 observations and 15 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+4                                                          The SAS System                    Wednesday, October 16, 2024 07:22:00 PM
+
+144        proc sort data = classlib.ae out = ae; by usubjid;
+145        run;
+
+NOTE: There were 1177 observations read from the data set CLASSLIB.AE.
+NOTE: The data set WORK.AE has 1177 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+146        /* sort dm and ae dataset by usubjid*/
+147        
+148        data mylib.aedm2;/*new permanent dataset called aedm2*/
+149          merge dm(in = ind) ae(in = ina);/*merge two data and make a indicator for two sets*/
+150          by usubjid;/* by variable usubjid*/
+151          if ind = 1 and ina =1; /* subject in both sets*/
+152        run;
+
+NOTE: There were 602 observations read from the data set WORK.DM.
+NOTE: There were 1177 observations read from the data set WORK.AE.
+NOTE: The data set MYLIB.AEDM2 has 1177 observations and 23 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+153        
+154        
+155        /***** Question 6 *****/
+156        proc freq data = mylib.aedm2; /* proc freq show the counts*/
+157          tables arm*sex*aesev;/* show the table by the three variables*/
+158          title "Q6 Table: Crosstabulaion by Arm Sex and AESEV";
+159        run;
+
+NOTE: There were 1177 observations read from the data set MYLIB.AEDM2.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.05 seconds
+      
+
+160        
+161        
+162        
+163        /***** Question 7 *****/
+164        
+165        proc sort data = classlib.vs out=vs;/*proc sort the vs dataset by the 3variables*/
+166         by usubjid visitnum visit;
+167        run;
+
+NOTE: There were 15050 observations read from the data set CLASSLIB.VS.
+NOTE: The data set WORK.VS has 15050 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+168        
+169        
+5                                                          The SAS System                    Wednesday, October 16, 2024 07:22:00 PM
+
+170        data ds_bp;/*create dataset called ds_bp*/
+171          set vs;/*use the data in vs dataset*/
+172          if vstest = "Diastolic Blood Pressure"; /* use the data where vstest = dbp */
+173          keep usubjid visitnum visit vsstresn;/* only keep these variables in the sets*/
+174          rename vsstresn = DIABP;/*rename vsstresn variable to DIABP*/
+175        run;
+
+NOTE: There were 15050 observations read from the data set WORK.VS.
+NOTE: The data set WORK.DS_BP has 3612 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+176        
+177        
+178        data sy_bp;/*create dataset called sy_bp*/
+179         set vs;/*use the data from vs dataset*/
+180         if vstest = "Systolic Blood Pressure";/*use the data where vstest = sbp*/
+181         keep usubjid visitnum visit vsstresn;/* only keep these variables in the sets*/
+182         rename vsstresn = SYSBP;/*rename vsstresn variable to sysbp*/
+183        run;
+
+NOTE: There were 15050 observations read from the data set WORK.VS.
+NOTE: The data set WORK.SY_BP has 3612 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+184        
+185        
+186        data temp_q7;/*create dataset*/
+187         merge ds_bp(in = inds) sy_bp(in = insy);/*merge the above two sets and make indicators*/
+188         if inds = 1 and insy =1;/*the dataset should keep both subjects*/
+189         by usubjid visitnum visit;/* by the three variables*/
+190        run;
+
+NOTE: There were 3612 observations read from the data set WORK.DS_BP.
+NOTE: There were 3612 observations read from the data set WORK.SY_BP.
+NOTE: The data set WORK.TEMP_Q7 has 3612 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+191        
+192        /***** Question 8 *****/
+193        proc print data = temp_q7;
+194          title "Q8 Table: Observations for Subject ECHO-012-019";
+195          where usubjid = "ECHO-012-019";/*apply proc print to the new dataset,
+196                                        provide the observations where usubjid is "ECHO-012-019"*/
+197        run;
+
+NOTE: There were 6 observations read from the data set WORK.TEMP_Q7.
+      WHERE usubjid='ECHO-012-019';
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+6                                                          The SAS System                    Wednesday, October 16, 2024 07:22:01 PM
+
+      cpu time            0.01 seconds
+      
+
+198        
+199        
+200        /***** Question 9 *****/
+201        data temp_q9;/*new dataset*/
+202           merge /*merge two vs with different data by different vstest and
+203                  rename the bp variable*/
+204           vs(where = (vstest = "Diastolic Blood Pressure") rename=(vsstresn = DIABP))
+205           vs(where = (vstest = "Systolic Blood Pressure") rename=(vsstresn = SYSBP));
+206        
+207           keep usubjid visitnum visit DIABP SYSBP;/*keep these variables*/
+208        run;
+
+NOTE: There were 3612 observations read from the data set WORK.VS.
+      WHERE vstest='Diastolic Blood Pressure';
+NOTE: There were 3612 observations read from the data set WORK.VS.
+      WHERE vstest='Systolic Blood Pressure';
+NOTE: The data set WORK.TEMP_Q9 has 3612 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+209        
+210        
+211        
+212        /***** Question 10 *****/
+213        ods exclude enginehost;/* exclude enginehost table from the output*/
+214        proc contents data = temp_q9;/* show the content of the dataset in Q9*/
+215        title "Content Table For Q10";
+216        run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+217        ods select all;/*reset ods to avoding affect the follwoing output*/
+218        
+219        
+220        
+221        ods pdf close;/*close the pdf file*/
+NOTE: ODS PDF printed 5 pages to /home/u63982087/BIOS511/Output/lab14_730784042.pdf.
+222        ods _all_ close;
+223        
+224        proc printto; run;
+

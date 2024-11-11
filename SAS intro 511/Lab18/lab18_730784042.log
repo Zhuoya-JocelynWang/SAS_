@@ -1,0 +1,243 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              306.28k
+      OS Memory           19104.00k
+      Timestamp           11/01/2024 12:45:05 AM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     24
+      Page Swaps                        0
+      Voluntary Context Switches        6
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+72         
+73         /************************************************************************************
+74            Project: BIOS 511
+75         
+76            Program Name: Lab18
+77         
+78            Author : Jocelyn(Zhuoya) Wang
+79         
+80            Date Created: 2024.10.30
+81         
+82            Purpose : This program is a practice of Arrays
+83         **************************************************************************************/
+84         
+85         
+86         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+87         options nofullstimer;
+88         
+89         
+90         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+91         run; /*access a libref in class folder*/
+92         
+93         ods pdf file = '/home/u63982087/BIOS511/Output/lab18_730784042.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab18_730784042.pdf", printer "PDF".
+94         /* create a pdf file */
+95         
+96         
+97         
+98         /***** Question 1 *****/
+99         data temp_price; /* temp data from prices*/
+100          set classlib.prices;
+101          array profit(15) profit1 - profit15; /*create new profit variables*/
+2                                                          The SAS System                     Thursday, October 31, 2024 08:45:05 PM
+
+102          array price(15) price1 - price15;/*define the price variables*/
+103        
+104          do i = 1 to dim(price);/*do the following loop from 1 to the dimension of price*/
+105            profit(i) = price(i) - discount; /*formula to calculate each profit*/
+106          end;
+107          format profit1 - profit15 dollar10.2;/*adjust the format of profit variables*/
+108          keep profit1 - profit15;/*only keep profits*/
+109        run;
+
+NOTE: There were 1000 observations read from the data set CLASSLIB.PRICES.
+NOTE: The data set WORK.TEMP_PRICE has 1000 observations and 15 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+110        
+111        
+112        
+113        
+114        
+115        
+116        /***** Question 2 *****/
+117        data q2_set;/*temp data from the dataset we created in last question*/
+118         set temp_price;
+119         length highest $35;/*create new variable called highest with length 35*/
+120        
+121         array profit(15) profit1 - profit15;/*define the profit variables*/
+122         hold_value=0;/*initial variable to a "hold" variable*/
+123         do i= 1 to dim(profit); /*do the loop from number of dimension of profit times*/
+124           if profit{i}> hold_value then do;
+125           hold_value = profit{i}; /*if ith profit is greater than hold value, replace it*/
+126           highest = vname(profit{i}); /*hold the name of the profit with highest value*/
+127           end;
+128         end;
+129         drop i;/*drop iterat*/
+130        run;
+
+NOTE: There were 1000 observations read from the data set WORK.TEMP_PRICE.
+NOTE: The data set WORK.Q2_SET has 1000 observations and 17 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+131        
+132        
+133        
+134        /***** Question 3 *****/
+135        proc freq data = q2_set;
+136          table highest; /*apply proc freq only to the variable highest*/
+137          title "Q3: Table of Distribution of the Variable 'Highest'By Race";
+138        run;
+
+NOTE: There were 1000 observations read from the data set WORK.Q2_SET.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+3                                                          The SAS System                     Thursday, October 31, 2024 08:45:05 PM
+
+      
+
+139        
+140        
+141        
+142        
+143        
+144        /***** Question 4 *****/
+145        data q4_temp; /*temp data from birthwgt*/
+146         set sashelp.birthwgt;
+147          array binary{*} $lowbirthwgt married /*create character variables*/
+148                drinking death smoking somecollege;
+149        
+150          array num_binary{*} num_lowbirthwgt num_married
+151                              num_drinking
+152                              num_death num_smoking
+153                              num_somecollege; /*create numeric variable*/
+154        
+155          do i=1 to dim(binary);/*do loop for 'number of the vairables in binary' times*/
+156            if binary{i} = "Yes" then num_binary{i}=1; /*if ith obs is Yes,
+157                                                      then ith numeric =1*/
+158        
+159            else num_binary{i} = 0;/*other ith numeric = 0 if fail to meet binary(i)=yes*/
+160          end;
+161          drop i; /*drop iterate number*/
+162        run;
+
+NOTE: There were 100000 observations read from the data set SASHELP.BIRTHWGT.
+NOTE: The data set WORK.Q4_TEMP has 100000 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.04 seconds
+      
+
+163        
+164        
+165        
+166        
+167        
+168        
+169        /***** Question 5 *****/
+170        ods noproctitle;/*surpress procedure title*/
+171        proc sort data = q4_temp;
+172         by race; /*sort the dataset by race*/
+173        run;
+
+NOTE: There were 100000 observations read from the data set WORK.Q4_TEMP.
+NOTE: The data set WORK.Q4_TEMP has 100000 observations and 14 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.05 seconds
+      
+
+174        
+175        ods select ChiSq;/*only show chisq tables*/
+176        proc freq data = q4_temp;
+177          by race; /*apply proc freq to data and sort by race*/
+178        
+4                                                          The SAS System                     Thursday, October 31, 2024 08:45:05 PM
+
+179          table num_lowbirthwgt*num_drinking/chisq;/*show the crosstabulation
+180                                              of the two variables and generate chisq*/
+181        run;
+
+NOTE: There were 100000 observations read from the data set WORK.Q4_TEMP.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.08 seconds
+      
+
+182        
+183        
+184        
+185        
+186        /***** Question 6 *****/
+187        data q6_data; /*create new temp dataset from heart*/
+188          set sashelp.heart;
+189        
+190          array character_var{*} _character_; /*define all character varaiable character_var*/
+191          array num{*} _numeric_;/*define all numeric varaiable num*/
+192        
+193          do i = 1 to dim(character_var); /*do the following for chacter variable*/
+194           character_var{i} = upcase(character_var{i});/*change the values to be all upper*/
+195          end;
+196        
+197          do j = 1 to dim(num);/*add 3% to all numeric variables*/
+198            if num{j} then num{j} = (num{j}+num{j}*0.03);
+199          end;
+200        
+201          if SEX = "MALE" and STATUS = "DEAD" and WEIGHT > 190; /*subset the data
+202                                                   that meet the three conditions*/
+203        
+204          drop i j;/*drop iterator variables*/
+205        run;
+
+NOTE: There were 5209 observations read from the data set SASHELP.HEART.
+NOTE: The data set WORK.Q6_DATA has 275 observations and 17 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+206        
+207        
+208        
+209        
+210        
+211        /***** Question 7 *****/
+212        proc print data = q6_data (obs =10);/*show firt 10 obs*/
+213         var weight BP_Status; /*only keep these two vairables*/
+214         title "Q7: First 10 Observation of Weight and BloodPressure_Status";
+215        run;
+
+NOTE: There were 10 observations read from the data set WORK.Q6_DATA.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+5                                                          The SAS System                     Thursday, October 31, 2024 08:45:05 PM
+
+
+216        
+217        
+218        ods pdf close;/*close the pdf file*/
+NOTE: ODS PDF printed 7 pages to /home/u63982087/BIOS511/Output/lab18_730784042.pdf.
+219        ods _all_ close;
+220        
+221        proc printto; run;
+

@@ -1,0 +1,335 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              306.28k
+      OS Memory           19104.00k
+      Timestamp           10/23/2024 04:07:47 PM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     26
+      Page Swaps                        0
+      Voluntary Context Switches        10
+      Involuntary Context Switches      1
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+71         
+72         
+73         /************************************************************************************
+74            Project: BIOS 511
+75         
+76            Program Name: Lab15
+77         
+78            Author : Jocelyn(Zhuoya) Wang
+79         
+80            Date Created: 2024.10.21
+81         
+82            Purpose : This program is a practice of conditionally executing statements
+83         **************************************************************************************/
+84         
+85         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+86         options nofullstimer;
+87         
+88         
+89         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+90         run; /*access a libref in class folder*/
+91         
+92         ods pdf file = '/home/u63982087/BIOS511/Output/lab15_730784042.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab15_730784042.pdf", printer "PDF".
+93         /* create a pdf file */
+94         
+95         
+96         /***** Question 1 *****/
+97         proc sort data = classlib.dm out = dm; by usubjid;
+
+NOTE: There were 602 observations read from the data set CLASSLIB.DM.
+NOTE: The data set WORK.DM has 602 observations and 15 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+2                                                          The SAS System                    Wednesday, October 23, 2024 12:07:47 PM
+
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+98         proc sort data = classlib.ae out = ae; by usubjid;
+99         run;
+
+NOTE: There were 1177 observations read from the data set CLASSLIB.AE.
+NOTE: The data set WORK.AE has 1177 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+99       !     /* sort dm and ae dataset by usubjid*/
+100        
+101        data q1_tempset; /*new dataset*/
+102           merge ae(in = inae) dm(in = indm);/*merge two dataset and assign indicators*/
+103           by usubjid;/*merge by usubjid variable*/
+104           if inae = 1 and indm = 0 then ad_event = 1;/*if the event onlyin ae data not in dm, --> had an event (=1)*/
+105           else ad_event = 0;/*otherwise indicator = 0 --> no event*/
+106           label ad_event = "Adverse Event Indicator";/*label the numeric indicator*/
+107        run;
+
+NOTE: There were 1177 observations read from the data set WORK.AE.
+NOTE: There were 602 observations read from the data set WORK.DM.
+NOTE: The data set WORK.Q1_TEMPSET has 1317 observations and 24 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+108        
+109        
+110        
+111        data q1_tempset; /*new dataset from q1_tempset and same name*/
+112           set q1_tempset;
+113           length Resulting_Category $50;/*set the length of new cat variable*/
+114        
+115           if aeser = "Y" then do;/*if serious = yes, do the condition and output*/
+116        
+117             if aeout = "NOT RECOVERED/NOT RESOLVED"
+118              and aesev = "SEVERE" then Resulting_Category = "Very Bad";
+119              /*if output = "NOT RECOVERED/NOT RESOLVED" & severity = severe,
+120              the cat variable = verybad*/
+121        
+122              else if aesev = "MODERATE" or aesev = "MILD" then Resulting_Category = "Bad";
+123           end;/*other condition of output with severity = moderate or mild, cat cariable = bad*/
+124        
+125        
+126           else if aeser = "N" then do;/*if serious = NO, do the following condition & output*/
+127        
+128              if aeout = "NOT RECOVERED/NOT RESOLVED"
+129              and aesev = "SEVERE" then Resulting_Category = "Not Good";
+130              /*if output = "NOT RECOVERED/NOT RESOLVED" & severity = severe,
+131              the cat variable = NOT GOOD*/
+132        
+133        
+3                                                          The SAS System                    Wednesday, October 23, 2024 12:07:47 PM
+
+134              else if aesev = "MODERATE" or aesev = "MILD" then Resulting_Category = "Acceptable";
+135           end;/*other condition of output with severity = moderate or mild,
+136           cat cariable = Acceptable*/
+137        
+138        
+139           else if aeser = "" then Resulting_Category = "N/A";
+140           /*when serious is missing, then cat variable is N/A*/
+141        
+142           label Resulting_Category = "AE Character categorical Variable ";/*label the new vat variabel*/
+143        
+144        run;
+
+NOTE: There were 1317 observations read from the data set WORK.Q1_TEMPSET.
+NOTE: The data set WORK.Q1_TEMPSET has 1317 observations and 25 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+145        
+146        
+147        /***** Question 2 *****/
+148        proc freq data = q1_tempset;/*apply proc freq to q1_tempset dataset*/
+149         table Resulting_Category;/*show the results*/
+150         title "Q1 Table of Resulting Category";
+151        run;
+
+NOTE: There were 1317 observations read from the data set WORK.Q1_TEMPSET.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+152        
+153        
+154        
+155        /***** Question 3 *****/
+156        
+157        proc sort data = classlib.dm out = dm; by usubjid;
+
+NOTE: There were 602 observations read from the data set CLASSLIB.DM.
+NOTE: The data set WORK.DM has 602 observations and 15 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+158        proc sort data = classlib.ae out = ae; by usubjid;
+159        run;
+
+NOTE: There were 1177 observations read from the data set CLASSLIB.AE.
+NOTE: The data set WORK.AE has 1177 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+159      !     /* sort dm and ae dataset by usubjid*/
+4                                                          The SAS System                    Wednesday, October 23, 2024 12:07:47 PM
+
+160        
+161        data q3_tempset;/*new dataset*/
+162           merge ae(in = inae) dm(in = indm);/*merge two dataset and assign indicators*/
+163           by usubjid;/*merge by usubjid variable*/
+164        
+165           if inae = 1 and indm = 0 then q3_event = 1;/*if the event onlyin ae
+166                                            data not in dm, --> had an event (=1)*/
+167           else q3_event = 0;/*otherwise indicator = 0 --> no event*/
+168           label q3_event = "Adverse Event Indicator";/*label the variable*/
+169        run;
+
+NOTE: There were 1177 observations read from the data set WORK.AE.
+NOTE: There were 602 observations read from the data set WORK.DM.
+NOTE: The data set WORK.Q3_TEMPSET has 1317 observations and 24 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+170        
+171        
+172        
+173        data q3_tempset;
+174           set q3_tempset;/*revise dataset on the original*/
+175        
+176           length Resulting_Category_q3 $50;/*set the length of new cat variable*/
+177        
+178           select;/*use selection  to execute condition*/
+179              when(aeser = "Y" and aeout = "NOT RECOVERED/NOT RESOLVED" and aesev = "SEVERE") do;
+180        
+181              Resulting_Category_q3 = "Very Bad"; /*when serious, output and sereverty
+182                                           meet the condition, new cat var is very bad*/
+183        
+184              end;
+185        
+186              when(aeser = "Y" and (aesev = "MODERATE" or aesev = "MILD")) do;
+187              Resulting_Category_q3 = "Bad";/*when serious, output and sereverty
+188                                           meet the condition, new cat var is bad*/
+189        
+190              end;
+191        
+192              when(aeser = "N" and aeout = "NOT RECOVERED/NOT RESOLVED" and aesev = "SEVERE")do;
+193              Resulting_Category_q3 = "Not Good"; /*when serious, output and sereverty
+194                                           meet the condition, new cat var is Not Good*/
+195              end;
+196        
+197              when(aeser = "N" and (aesev = "MODERATE" or aesev = "MILD")) do;
+198              Resulting_Category_q3 = "Acceptable" ;/*when serious, output and sereverty
+199                                           meet the condition, new cat var is Acceptable*/
+200              end;
+201        
+202              when(aeser = "") do; /*when serious is missing, new cat var is N/A*/
+203              Resulting_Category_q3 = "N/A" ;
+204        
+205              end;
+206              otherwise;/* other condition*/
+207            end;
+208        
+5                                                          The SAS System                    Wednesday, October 23, 2024 12:07:47 PM
+
+209           label Resulting_Category_q3 = "AE Character categorical Variable for q3";/*label the new variable*/
+210        run;
+
+NOTE: There were 1317 observations read from the data set WORK.Q3_TEMPSET.
+NOTE: The data set WORK.Q3_TEMPSET has 1317 observations and 25 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+211        
+212        
+213        
+214        /***** Question 4 *****/
+215        proc compare base =  q1_tempset comp = q3_tempset; /* compare two datasets*/
+216        title "Q4: Table for Two Datasets Comparison";
+217        run;
+
+NOTE: There were 1317 observations read from the data set WORK.Q1_TEMPSET.
+NOTE: There were 1317 observations read from the data set WORK.Q3_TEMPSET.
+NOTE: PROCEDURE COMPARE used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+218        
+219        
+220        
+221        /***** Question 5 *****/
+222        data emp_don; /*new dataset from employee_donations*/
+223          set classlib.employee_donations;
+224          sum_fun = sum(of qtr1 - qtr4);/*sum by using sum fucntion*/
+225          sum_add = qtr1 + qtr2 + qtr3 + qtr4;/*sum by simply adding*/
+226          diff = sum_fun - sum_add;/*difference between the above two addition*/
+227        run;
+
+NOTE: Missing values were generated as a result of performing an operation on missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      30 at 225:18   2 at 225:25    4 at 225:32    36 at 226:18   
+NOTE: There were 124 observations read from the data set CLASSLIB.EMPLOYEE_DONATIONS.
+NOTE: The data set WORK.EMP_DON has 124 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+228        
+229        /***** Question 6 *****/
+230        proc means data = emp_don min max mean sum nmiss;/*apply these statistics to emp_don dataset*/
+231           var diff;/*only present diff variable*/
+232           title "Q6: Table for Sum Difference";
+233        run;
+
+NOTE: There were 124 observations read from the data set WORK.EMP_DON.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+6                                                          The SAS System                    Wednesday, October 23, 2024 12:07:47 PM
+
+
+234        
+235        
+236        /***** Question 7 *****/
+237        data temp_lm;/* create new dataset from leaning_modalities data*/
+238          set classlib.learn_modalities;
+239          week_part = datepart(week);/*extract date from the variables*/
+240          if week_part > "01JAN2021"d; /*subset the dataset with date > Jan 1st 2021*/
+241        run;
+
+NOTE: There were 429865 observations read from the data set CLASSLIB.LEARN_MODALITIES.
+NOTE: The data set WORK.TEMP_LM has 244905 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.09 seconds
+      
+
+242        
+243        
+244        /***** Question 8 *****/
+245        proc freq data = temp_lm; /*apply proc freq to temp_lm*/
+246          tables learning_modality; /*show the counts result*/
+247          title "Q8: Table For Learning Modality";
+248        run;
+
+NOTE: There were 244905 observations read from the data set WORK.TEMP_LM.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.05 seconds
+      
+
+249        
+250        
+251        
+252        ods pdf close;/*close the pdf file*/
+NOTE: ODS PDF printed 4 pages to /home/u63982087/BIOS511/Output/lab15_730784042.pdf.
+253        ods _all_ close;
+254        
+255        proc printto; run;
+

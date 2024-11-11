@@ -1,0 +1,185 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              257.90k
+      OS Memory           23712.00k
+      Timestamp           10/12/2024 10:43:25 PM
+      Step Count                        36  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     17
+      Page Swaps                        0
+      Voluntary Context Switches        9
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+71         
+72         /************************************************************************************
+73            Project: BIOS 511
+74         
+75            Program Name: Lab12
+76         
+77            Author : Jocelyn(Zhuoya) Wang
+78         
+79            Date Created: 2024.10.07
+80         
+81            Purpose : This program is a practice of DATAStep (generating new dataset& function
+82         **************************************************************************************/
+83         
+84         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+85         options nofullstimer;
+86         
+87         
+88         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB refers to the same physical library as _TEMP0.
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+89         run; /*access a libref in class folder*/
+90         
+91         ods pdf file = '/home/u63982087/BIOS511/Output/lab12_730784042.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab12_730784042.pdf", printer "PDF".
+92         /* create a pdf file */
+93         
+94         
+95         /***** Question 1 *****/
+96         data work.data_us; /*temporary verstion of sashelp.us_data, and name it as data_us*/
+97         set sashelp.us_data;/*use original data used is us_data in sashelp folder*/
+98         
+99         percent_change = round(((population_1970
+100                          - population_1960)/population_1960)*100, 0.01);
+2                                                          The SAS System                     Saturday, October 12, 2024 06:43:25 PM
+
+101                          /*calculate the percent and round the result to two decimal*/
+102        
+103        
+104        abs = abs(percent_change - change_1970);/*absolute value*/
+105        total_seatchange = sum(seat_change_1910,seat_change_1920,seat_change_1930,seat_change_1940,seat_change_1950,
+106                 seat_change_1960,seat_change_1970);/* calculate total seat change*/
+107        run;
+
+NOTE: Missing values were generated as a result of performing an operation on missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      2 at 105:20   
+NOTE: There were 52 observations read from the data set SASHELP.US_DATA.
+NOTE: The data set WORK.DATA_US has 52 observations and 85 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+108        
+109        /***** Question 2 *****/
+110        proc sort data = data_us  out = my_data_us;/*sort data_us and compute the result
+111                                                   in the dataset called my_data_us*/
+112           by descending percent_change;/*sort data_us by
+113                                        percent_change in a descending order*/
+114        run;
+
+NOTE: There were 52 observations read from the data set WORK.DATA_US.
+NOTE: The data set WORK.MY_DATA_US has 52 observations and 85 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+115        
+116        
+117        /***** Question 3 *****/
+118        
+119        proc print data = my_data_us (obs = 15) noobs;/*print the first 15 data in Q2, surpress observation number*/
+120           var statename division population_1960 population_1970 change_1970
+121           percent_change abs total_seatchange;/*only show these variables in the output*/
+122           title"Table of First 15 Observations";
+123        run;
+
+NOTE: There were 15 observations read from the data set WORK.MY_DATA_US.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+124        
+125        
+126        /***** Question 4 *****/
+127        data tem_budget;
+128        set classlib.budget;  /*name temporary budget use the data
+129                                from budget in class folder*/
+130        
+131        mean_budget = mean(of yr2016 - yr2020);/* average of 5 budget variables*/
+132        min_budget = min(of yr2016 - yr2020);/*minimum of 5 budget variables*/
+3                                                          The SAS System                     Saturday, October 12, 2024 06:43:25 PM
+
+133        max_budget = max(of yr2016 - yr2020);/*maximum of 5 budget variabels*/
+134        multiplier = 1.12;/*new variable name multiplier and equals to a constant value of 1.12*/
+135        run;
+
+NOTE: There were 12 observations read from the data set CLASSLIB.BUDGET.
+NOTE: The data set WORK.TEM_BUDGET has 12 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+136        
+137        /***** Question 5 *****/
+138        
+139        ods noproctitle;
+140        title "Table of Budget by Department";
+141        proc means data = tem_budget mean min max nonobs ;/*print mean, min, and max of the target variables*/
+142         class department;
+143         var mean_budget min_budget max_budget multiplier;/*show these 4 variables in the output dataset*/
+144        run;
+
+NOTE: There were 12 observations read from the data set WORK.TEM_BUDGET.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+145        
+146        
+147        /***** Question 6 *****/
+148        data temp_diab; /*new dataset called temp_diab*/
+149        set classlib.diabetes;/* data used to compute the result in temp_diab*/
+150         feet = int(height/12);/* calculate the height in feet and in integer*/
+151         remain_inch = (height - feet*12);/*remaing height in feets as integer*
+152        
+153        /***** Question 7 *****/
+
+NOTE: Missing values were generated as a result of performing an operation on missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      5 at 150:9    5 at 150:19   5 at 151:30   
+NOTE: There were 403 observations read from the data set CLASSLIB.DIABETES.
+NOTE: The data set WORK.TEMP_DIAB has 403 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+154        proc sgplot data = temp_diab;
+155         vbar frame / response = feet stat = mean group = frame;
+156                               /*create a vertical barplot by frame, and y is mean value of feet,
+157                               each bar has different color*/
+158         title" Vertical Barplot of Height in Each Frame";
+159        run;
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           0.20 seconds
+      cpu time            0.06 seconds
+      
+4                                                          The SAS System                     Saturday, October 12, 2024 06:43:26 PM
+
+NOTE: There were 403 observations read from the data set WORK.TEMP_DIAB.
+
+160        
+161        
+162        ods pdf close;/*close the pdf file*/
+NOTE: ODS PDF printed 3 pages to /home/u63982087/BIOS511/Output/lab12_730784042.pdf.
+163        ods _all_ close;
+164        
+165        proc printto; run;
+

@@ -1,0 +1,3198 @@
+<!DOCTYPE html>
+<html class="ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="SAS 9.4" name="generator"/>
+<title>Results: Lab5_730784042.sas</title>
+<style>
+/*<![CDATA[*/
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.c section > table, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.c section > pre, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.c div > table,
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.c div > pre, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.c article > table, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.c article > pre,
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.j section > table, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.j section > pre, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.j div > table,
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.j div > pre, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.j article > table, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.j article > pre,
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.c p.note, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.c p.warning, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.c p.error, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.c p.fatal,
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.j p.note, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.j p.warning, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.j p.error, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.j p.fatal,
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.c > table.layoutcontainer, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.l table, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.l pre, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.l p.note,
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.l p.warning, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.l p.error, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.l p.fatal { margin-left: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.c table, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.c pre, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.c p.note,
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.c p.warning, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.c p.error, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.r table, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.r pre, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.r p.note,
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.r table, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.r pre, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.r p.note,
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.r p.warning, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.r p.error, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion.r p.fatal { margin-right: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df article, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df aside, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df details, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df figcaption, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df figure, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df footer, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df header, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df hgroup, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df nav, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df section { display: block }
+html.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df { font-size: 100% }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body { margin: 1em; font-size: 13px; line-height: 1.231 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df ul, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df ol { margin: 1em 0; padding: 0 0 0 40px }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df dd { margin: 0 0 0 40px }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df nav ul, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df img { border: 0; vertical-align: middle }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df svg:not(:root) { overflow: hidden }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df figure { margin: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df table { border-collapse: collapse; border-spacing: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutcontainer { border-collapse: separate; border-spacing: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df p { margin-top: 0; text-align: left }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df h1.heading1 { text-align: left }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df h2.heading2 { text-align: left }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df h3.heading3 { text-align: left }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df h4.heading4 { text-align: left }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df h5.heading5 { text-align: left }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df h6.heading6 { text-align: left }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df span { text-align: left }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df table { margin-bottom: 1em }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df td, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df th { text-align: left; padding: 3px 6px; vertical-align: top }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df td[class$="fixed"], .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df th[class$="fixed"] { white-space: pre }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df section, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df article { padding-top: 1px; padding-bottom: 8px }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .stacked-value { text-align: left; display: block }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .stacked-cell > .stacked-value, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df td.data > td.data, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df th.data > td.data, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df th.data > th.data, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df td.data > th.data, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df th.header > th.header { border: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .stacked-cell > div.data { border-width: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer > p { margin: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .batch { display: table }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .toc { display: none }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .proc_note_group, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .proc_title_group { margin-bottom: 1em }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df p.proctitle { margin: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df p.note, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df p.warning, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df p.error, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df p.fatal { display: table }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .notebanner, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .warnbanner, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .errorbanner, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .fatalbanner,
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .notecontent, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .warncontent, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .errorcontent, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .fatalcontent { display: table-cell; padding: 0.5em }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .notebanner, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .warnbanner, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .errorbanner, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .fatalbanner { padding-right: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body > div > ol li { text-align: left }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .beforecaption > h4 { margin-top: 0; margin-bottom: 0 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .c { text-align: center }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .r { text-align: right }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .l { text-align: left }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .j { text-align: justify }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .d { text-align: right }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .b { vertical-align: bottom }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .m { vertical-align: middle }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .t { vertical-align: top }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .accessiblecaption {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df a:active { color: #800080 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .aftercaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .batch > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .batch > tbody, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .batch > thead, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .batch > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .batch { border: hidden; }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .batch {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .beforecaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .body {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .bodydate {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .bycontentfolder {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .byline {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .bylinecontainer > col, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .bylinecontainer > colgroup > col, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .bylinecontainer > colgroup, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .bylinecontainer > tr, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .bylinecontainer > * > tr, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .bylinecontainer > thead, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .bylinecontainer > tbody, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .bylinecontainer > tfoot { border: none; }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .bylinecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .caption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .cell, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .container {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .contentfolder, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .contentitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .contentproclabel, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .contentprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .contents {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .contentsdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .contenttitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .continued {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .data, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .dataemphasis {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .dataemphasisfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .dataempty {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .datafixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .datastrong {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .datastrongfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .date {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .document {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .errorbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .errorcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .errorcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .extendedpage {
+    background-color: #fafbfe;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .fatalbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .fatalcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .fatalcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .folderaction {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .footer {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .footeremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .footeremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .footerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .footerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .footerstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .footerstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .frame {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .graph > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .graph > tbody, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .graph > thead, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .graph > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .graph { border: hidden; }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .graph {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .header {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .headeremphasis {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .headeremphasisfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .headerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .headerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .headerstrong {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .headerstrongfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .heading1, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .heading2, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .heading3, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .heading4, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .heading5, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .heading6 { font-family: Arial, Helvetica, sans-serif }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .index {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .indexaction, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .indexitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .indexprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .indextitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutcontainer, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .linecontent {
+    background-color: #fafbfe;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df a:link { color: #0000ff }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .list {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .list10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .list2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .list3, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .list4, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .list5, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .list6, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .list7, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .list8, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .list9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .listitem {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .listitem10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .listitem2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .listitem3, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .listitem4, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .listitem5, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .listitem6, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .listitem7, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .listitem8, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .listitem9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .note {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .notebanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .notecontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .notecontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .output > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .output > tbody, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .output > thead, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .output > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .output { border: hidden; }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .output {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .pageno {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .pages {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .pagesdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .pagesitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .pagesproclabel, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .pagesprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .pagestitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .paragraph {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .parskip > col, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .parskip > colgroup > col, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .parskip > colgroup, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .parskip > tr, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .parskip > * > tr, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .parskip > thead, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .parskip > tbody, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .parskip > tfoot { border: none; }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .prepage {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .proctitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .proctitlefixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowfooter {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowfooteremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowfooteremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowfooterempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowfooterfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowfooterstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowfooterstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowheader {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowheaderemphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowheaderemphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowheaderempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowheaderfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowheaderstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .rowheaderstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemfooter, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemfooter10, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemfooter2, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemfooter3, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemfooter4, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemfooter5, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemfooter6, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemfooter7, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemfooter8, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemfooter9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemtitle, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemtitle10, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemtitle2, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemtitle3, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemtitle4, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemtitle5, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemtitle6, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemtitle7, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemtitle8, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systemtitle9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer > col, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer > colgroup > col, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer > colgroup, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer > tr, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer > * > tr, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer > thead, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer > tbody, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer > tfoot { border: none; }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .systitleandfootercontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .table > col, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .table > colgroup > col {
+    border-left: 1px solid #c1c1c1;
+    border-right: 0 solid #c1c1c1;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .table > tr, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .table > * > tr {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 0 solid #c1c1c1;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .table { border: hidden; }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .table {
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .titleandnotecontainer > col, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .titleandnotecontainer > colgroup > col, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .titleandnotecontainer > colgroup, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .titleandnotecontainer > tr, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .titleandnotecontainer > * > tr, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .titleandnotecontainer > thead, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .titleandnotecontainer > tbody, .ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .titleandnotecontainer > tfoot { border: none; }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .titleandnotecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .titlesandfooters {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .usertext {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df a:visited { color: #800080 }
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .warnbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .warncontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_3905fcad-4bb8-4f68-a213-0ea7a979e4df .warncontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+</head>
+<body class="body">
+<div id="div_3905fcad-4bb8-4f68-a213-0ea7a979e4df" class="c body">
+<h1 class="body toc">Results: Lab5_730784042.sas</h1>
+<section data-name="Print" data-sec-type="proc">
+<div id="IDX" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Day &amp; Count in Sashelp.failure Dataset by Cause</span> </p>
+</div>
+<h1 class="contentprocname toc">The Print Procedure</h1>
+<section>
+<h1 class="bycontentfolder toc">Cause of Failure=Contamination</h1>
+<article aria-label="Data Set WORK.SAS_FAIL">
+<h1 class="contentitem toc">Data Set WORK.SAS_FAIL</h1>
+<p class="c byline" style="border-spacing: 0">Cause of Failure=Contamination</p>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.SAS_FAIL">
+<caption aria-label="Data Set WORK.SAS_FAIL"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">Obs</th>
+<th class="r header" scope="col">Day</th>
+<th class="r header" scope="col">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<td class="r data">Monday</td>
+<td class="r data">15</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2</th>
+<td class="r data">Tuesday</td>
+<td class="r data">16</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3</th>
+<td class="r data">Wednesday</td>
+<td class="r data">20</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4</th>
+<td class="r data">Thursday</td>
+<td class="r data">12</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5</th>
+<td class="r data">Friday</td>
+<td class="r data">23</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6</th>
+<td class="r data">Monday</td>
+<td class="r data">8</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7</th>
+<td class="r data">Tuesday</td>
+<td class="r data">9</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8</th>
+<td class="r data">Wednesday</td>
+<td class="r data">4</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9</th>
+<td class="r data">Thursday</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10</th>
+<td class="r data">Friday</td>
+<td class="r data">1</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section id="IDX1">
+<h1 class="bycontentfolder toc">Cause of Failure=Corrosion</h1>
+<article aria-label="Data Set WORK.SAS_FAIL">
+<h1 class="contentitem toc">Data Set WORK.SAS_FAIL</h1>
+<p class="c byline" style="border-spacing: 0">Cause of Failure=Corrosion</p>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.SAS_FAIL">
+<caption aria-label="Data Set WORK.SAS_FAIL"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">Obs</th>
+<th class="r header" scope="col">Day</th>
+<th class="r header" scope="col">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">11</th>
+<td class="r data">Monday</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">12</th>
+<td class="r data">Tuesday</td>
+<td class="r data">3</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13</th>
+<td class="r data">Wednesday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14</th>
+<td class="r data">Thursday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15</th>
+<td class="r data">Friday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16</th>
+<td class="r data">Monday</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">17</th>
+<td class="r data">Tuesday</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18</th>
+<td class="r data">Wednesday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19</th>
+<td class="r data">Thursday</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20</th>
+<td class="r data">Friday</td>
+<td class="r data">3</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section id="IDX2">
+<h1 class="bycontentfolder toc">Cause of Failure=Doping</h1>
+<article aria-label="Data Set WORK.SAS_FAIL">
+<h1 class="contentitem toc">Data Set WORK.SAS_FAIL</h1>
+<p class="c byline" style="border-spacing: 0">Cause of Failure=Doping</p>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.SAS_FAIL">
+<caption aria-label="Data Set WORK.SAS_FAIL"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">Obs</th>
+<th class="r header" scope="col">Day</th>
+<th class="r header" scope="col">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">21</th>
+<td class="r data">Monday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">22</th>
+<td class="r data">Tuesday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">23</th>
+<td class="r data">Wednesday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">24</th>
+<td class="r data">Thursday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">25</th>
+<td class="r data">Friday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">26</th>
+<td class="r data">Monday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">27</th>
+<td class="r data">Tuesday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">28</th>
+<td class="r data">Wednesday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">29</th>
+<td class="r data">Thursday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">30</th>
+<td class="r data">Friday</td>
+<td class="r data">1</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section id="IDX3">
+<h1 class="bycontentfolder toc">Cause of Failure=Metallization</h1>
+<article aria-label="Data Set WORK.SAS_FAIL">
+<h1 class="contentitem toc">Data Set WORK.SAS_FAIL</h1>
+<p class="c byline" style="border-spacing: 0">Cause of Failure=Metallization</p>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.SAS_FAIL">
+<caption aria-label="Data Set WORK.SAS_FAIL"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">Obs</th>
+<th class="r header" scope="col">Day</th>
+<th class="r header" scope="col">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">31</th>
+<td class="r data">Monday</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">32</th>
+<td class="r data">Tuesday</td>
+<td class="r data">3</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">33</th>
+<td class="r data">Wednesday</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">34</th>
+<td class="r data">Thursday</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">35</th>
+<td class="r data">Friday</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">36</th>
+<td class="r data">Monday</td>
+<td class="r data">4</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">37</th>
+<td class="r data">Tuesday</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">38</th>
+<td class="r data">Wednesday</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">39</th>
+<td class="r data">Thursday</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">40</th>
+<td class="r data">Friday</td>
+<td class="r data">0</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section id="IDX4">
+<h1 class="bycontentfolder toc">Cause of Failure=Miscellaneous</h1>
+<article aria-label="Data Set WORK.SAS_FAIL">
+<h1 class="contentitem toc">Data Set WORK.SAS_FAIL</h1>
+<p class="c byline" style="border-spacing: 0">Cause of Failure=Miscellaneous</p>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.SAS_FAIL">
+<caption aria-label="Data Set WORK.SAS_FAIL"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">Obs</th>
+<th class="r header" scope="col">Day</th>
+<th class="r header" scope="col">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">41</th>
+<td class="r data">Monday</td>
+<td class="r data">3</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">42</th>
+<td class="r data">Tuesday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">43</th>
+<td class="r data">Wednesday</td>
+<td class="r data">3</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">44</th>
+<td class="r data">Thursday</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">45</th>
+<td class="r data">Friday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">46</th>
+<td class="r data">Monday</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">47</th>
+<td class="r data">Tuesday</td>
+<td class="r data">4</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">48</th>
+<td class="r data">Wednesday</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">49</th>
+<td class="r data">Thursday</td>
+<td class="r data">3</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">50</th>
+<td class="r data">Friday</td>
+<td class="r data">1</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section id="IDX5">
+<h1 class="bycontentfolder toc">Cause of Failure=Oxide Defect</h1>
+<article aria-label="Data Set WORK.SAS_FAIL">
+<h1 class="contentitem toc">Data Set WORK.SAS_FAIL</h1>
+<p class="c byline" style="border-spacing: 0">Cause of Failure=Oxide Defect</p>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.SAS_FAIL">
+<caption aria-label="Data Set WORK.SAS_FAIL"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">Obs</th>
+<th class="r header" scope="col">Day</th>
+<th class="r header" scope="col">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">51</th>
+<td class="r data">Monday</td>
+<td class="r data">8</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">52</th>
+<td class="r data">Tuesday</td>
+<td class="r data">9</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">53</th>
+<td class="r data">Wednesday</td>
+<td class="r data">7</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">54</th>
+<td class="r data">Thursday</td>
+<td class="r data">10</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">55</th>
+<td class="r data">Friday</td>
+<td class="r data">8</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">56</th>
+<td class="r data">Monday</td>
+<td class="r data">10</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">57</th>
+<td class="r data">Tuesday</td>
+<td class="r data">9</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">58</th>
+<td class="r data">Wednesday</td>
+<td class="r data">10</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">59</th>
+<td class="r data">Thursday</td>
+<td class="r data">7</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">60</th>
+<td class="r data">Friday</td>
+<td class="r data">8</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section id="IDX6">
+<h1 class="bycontentfolder toc">Cause of Failure=Silicon Defect</h1>
+<article aria-label="Data Set WORK.SAS_FAIL">
+<h1 class="contentitem toc">Data Set WORK.SAS_FAIL</h1>
+<p class="c byline" style="border-spacing: 0">Cause of Failure=Silicon Defect</p>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.SAS_FAIL">
+<caption aria-label="Data Set WORK.SAS_FAIL"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">Obs</th>
+<th class="r header" scope="col">Day</th>
+<th class="r header" scope="col">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">61</th>
+<td class="r data">Monday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">62</th>
+<td class="r data">Tuesday</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">63</th>
+<td class="r data">Wednesday</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">64</th>
+<td class="r data">Thursday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">65</th>
+<td class="r data">Friday</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">66</th>
+<td class="r data">Monday</td>
+<td class="r data">3</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">67</th>
+<td class="r data">Tuesday</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">68</th>
+<td class="r data">Wednesday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">69</th>
+<td class="r data">Thursday</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">70</th>
+<td class="r data">Friday</td>
+<td class="r data">2</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+</section>
+<section data-name="Print" data-sec-type="proc">
+<hr class="pagebreak"/>
+<div id="IDX7" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Employee Donations in Dollars</span> </p>
+</div>
+<h1 class="contentprocname toc">The Print Procedure</h1>
+<article aria-label="Data Set CLASSLIB.EMPLOYEE_DONATIONS">
+<h1 class="contentitem toc">Data Set CLASSLIB.EMPLOYEE_DONATIONS</h1>
+<table class="table" style="border-spacing: 0" aria-label="Data Set CLASSLIB.EMPLOYEE_DONATIONS">
+<caption aria-label="Data Set CLASSLIB.EMPLOYEE_DONATIONS"></caption>
+<colgroup><col/><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="header" scope="col">Type_of_Payment</th>
+<th class="header" scope="col">Recipients</th>
+<th class="r header" scope="col">Qtr1</th>
+<th class="r header" scope="col">Qtr2</th>
+<th class="r header" scope="col">Qtr3</th>
+<th class="r header" scope="col">Qtr4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Mitleid International 90%, Save the Baby Animals 10%</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">$25.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Disaster Assist, Inc. 80%, Cancer Cures, Inc. 20%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cancer Cures, Inc. 10%, Cuidadores Ltd. 90%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">AquaMissions International 10%, Child Survivors 90%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cuidadores Ltd. 80%, Mitleid International 20%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">AquaMissions International 10%, Child Survivors 90%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">AquaMissions International 60%, Child Survivors 40%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Disaster Assist, Inc.</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Cancer Cures, Inc.</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">EarthSalvors 30%, Vox Victimas 70%</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">$5.00</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">AquaMissions International 80%, Child Survivors 20%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">AquaMissions International 60%, Child Survivors 40%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Conserve Nature, Inc. 20%, AquaMissions International 80%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">EarthSalvors 60%, Vox Victimas 40%</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Disaster Assist, Inc. 50%, Cancer Cures, Inc. 50%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Cancer Cures, Inc.</td>
+<td class="r data">0</td>
+<td class="r data">$20.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Cancer Cures, Inc. 20%, Cuidadores Ltd. 80%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">EarthSalvors 60%, Vox Victimas 40%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Vox Victimas 60%, Conserve Nature, Inc. 40%</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Conserve Nature, Inc. 40%, AquaMissions International 60%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Disaster Assist, Inc. 40%, Cancer Cures, Inc. 60%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Save the Baby Animals 90%, EarthSalvors 10%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">EarthSalvors 70%, Vox Victimas 30%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Conserve Nature, Inc. 60%, AquaMissions International 40%</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Child Survivors 70%, Disaster Assist, Inc. 30%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">EarthSalvors 40%, Vox Victimas 60%</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">$15.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Cuidadores Ltd.</td>
+<td class="r data">$25.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Cancer Cures, Inc.</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Conserve Nature, Inc. 40%, AquaMissions International 60%</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Conserve Nature, Inc. 80%, AquaMissions International 20%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Child Survivors 90%, Disaster Assist, Inc. 10%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Child Survivors 90%, Disaster Assist, Inc. 10%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Save the Baby Animals</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cuidadores Ltd. 60%, Mitleid International 40%</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Conserve Nature, Inc. 50%, AquaMissions International 50%</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cancer Cures, Inc. 60%, Cuidadores Ltd. 40%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">AquaMissions International</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">$15.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Child Survivors</td>
+<td class="r data">$15.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Cancer Cures, Inc. 40%, Cuidadores Ltd. 60%</td>
+<td class="r data">0</td>
+<td class="r data">$15.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">EarthSalvors 40%, Vox Victimas 60%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Cuidadores Ltd.</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Vox Victimas 30%, Conserve Nature, Inc. 70%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Mitleid International 80%, Save the Baby Animals 20%</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Vox Victimas 50%, Conserve Nature, Inc. 50%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Save the Baby Animals</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Cuidadores Ltd.</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Vox Victimas</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Cuidadores Ltd. 80%, Mitleid International 20%</td>
+<td class="r data">$5.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cuidadores Ltd. 90%, Mitleid International 10%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Disaster Assist, Inc. 10%, Cancer Cures, Inc. 90%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Save the Baby Animals 90%, EarthSalvors 10%</td>
+<td class="r data">$5.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">AquaMissions International 30%, Child Survivors 70%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Child Survivors</td>
+<td class="r data">$30.00</td>
+<td class="r data">$30.00</td>
+<td class="r data">$30.00</td>
+<td class="r data">$30.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Mitleid International 40%, Save the Baby Animals 60%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Child Survivors</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Vox Victimas</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Cuidadores Ltd. 40%, Mitleid International 60%</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cuidadores Ltd.</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">AquaMissions International 70%, Child Survivors 30%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">AquaMissions International 40%, Child Survivors 60%</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Disaster Assist, Inc. 20%, Cancer Cures, Inc. 80%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Child Survivors 80%, Disaster Assist, Inc. 20%</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+<td class="r data">$25.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Disaster Assist, Inc.</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Cancer Cures, Inc. 80%, Cuidadores Ltd. 20%</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">AquaMissions International 40%, Child Survivors 60%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Vox Victimas 70%, Conserve Nature, Inc. 30%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Disaster Assist, Inc. 70%, Cancer Cures, Inc. 30%</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">AquaMissions International 80%, Child Survivors 20%</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+<td class="r data">$20.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Vox Victimas 50%, Conserve Nature, Inc. 50%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Mitleid International 30%, Save the Baby Animals 70%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cancer Cures, Inc.</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Cuidadores Ltd. 60%, Mitleid International 40%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Child Survivors 10%, Disaster Assist, Inc. 90%</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Child Survivors 60%, Disaster Assist, Inc. 40%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">0</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">EarthSalvors 70%, Vox Victimas 30%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Conserve Nature, Inc.</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">EarthSalvors 70%, Vox Victimas 30%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cuidadores Ltd. 70%, Mitleid International 30%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Mitleid International 30%, Save the Baby Animals 70%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Save the Baby Animals</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Mitleid International</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Mitleid International</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Disaster Assist, Inc. 50%, Cancer Cures, Inc. 50%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Save the Baby Animals 20%, EarthSalvors 80%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Disaster Assist, Inc. 50%, Cancer Cures, Inc. 50%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Vox Victimas</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Child Survivors 20%, Disaster Assist, Inc. 80%</td>
+<td class="r data">$5.00</td>
+<td class="r data">0</td>
+<td class="r data">$5.00</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Save the Baby Animals</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cancer Cures, Inc.</td>
+<td class="r data">0</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Disaster Assist, Inc. 90%, Cancer Cures, Inc. 10%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Child Survivors 20%, Disaster Assist, Inc. 80%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cancer Cures, Inc.</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">AquaMissions International 30%, Child Survivors 70%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">EarthSalvors 90%, Vox Victimas 10%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Cuidadores Ltd.</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Disaster Assist, Inc. 30%, Cancer Cures, Inc. 70%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">EarthSalvors</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Mitleid International 80%, Save the Baby Animals 20%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">EarthSalvors 20%, Vox Victimas 80%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">AquaMissions International 90%, Child Survivors 10%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Mitleid International 30%, Save the Baby Animals 70%</td>
+<td class="r data">0</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">AquaMissions International 70%, Child Survivors 30%</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Conserve Nature, Inc.</td>
+<td class="r data">$5.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Cuidadores Ltd. 80%, Mitleid International 20%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cuidadores Ltd. 60%, Mitleid International 40%</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Disaster Assist, Inc. 50%, Cancer Cures, Inc. 50%</td>
+<td class="r data">$5.00</td>
+<td class="r data">0</td>
+<td class="r data">$10.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Cancer Cures, Inc.</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Save the Baby Animals</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Disaster Assist, Inc.</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+<td class="r data">$15.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Cancer Cures, Inc. 70%, Cuidadores Ltd. 30%</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Save the Baby Animals 60%, EarthSalvors 40%</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Cancer Cures, Inc.</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Cuidadores Ltd. 60%, Mitleid International 40%</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Vox Victimas 40%, Conserve Nature, Inc. 60%</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">EarthSalvors 50%, Vox Victimas 50%</td>
+<td class="r data">$10.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Disaster Assist, Inc.</td>
+<td class="r data">$5.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Save the Baby Animals 40%, EarthSalvors 60%</td>
+<td class="r data">$5.00</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<td class="data">Cash or Check</td>
+<td class="data">Disaster Assist, Inc. 10%, Cancer Cures, Inc. 90%</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+<td class="r data">$5.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cuidadores Ltd.</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Credit Card</td>
+<td class="data">Conserve Nature, Inc. 40%, AquaMissions International 60%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">AquaMissions International 10%, Child Survivors 90%</td>
+<td class="r data">$35.00</td>
+<td class="r data">$35.00</td>
+<td class="r data">$35.00</td>
+<td class="r data">$35.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Mitleid International 60%, Save the Baby Animals 40%</td>
+<td class="r data">$35.00</td>
+<td class="r data">$35.00</td>
+<td class="r data">$35.00</td>
+<td class="r data">$35.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Save the Baby Animals</td>
+<td class="r data">$35.00</td>
+<td class="r data">$35.00</td>
+<td class="r data">$35.00</td>
+<td class="r data">$35.00</td>
+</tr>
+<tr>
+<td class="data">Payroll Deduction</td>
+<td class="data">Cuidadores Ltd. 50%, Mitleid International 50%</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+<td class="r data">$10.00</td>
+</tr>
+<tr>
+<th class="header" scope="col"> &#160;</th>
+<th class="header" scope="col"> &#160;</th>
+<th class="r header" scope="col">$1515.00</th>
+<th class="r header" scope="col">$1425.00</th>
+<th class="r header" scope="col">$1475.00</th>
+<th class="r header" scope="col">$1445.00</th>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section data-name="Freq" data-sec-type="proc">
+<hr class="pagebreak"/>
+<div id="IDX8" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Frequency Table of Gender</span> </p>
+</div>
+<div class="proc_title_group">
+<p class="c proctitle">The FREQ Procedure</p>
+</div>
+<h1 class="contentprocname toc">The Freq Procedure</h1>
+<section>
+<h1 class="contentfolder toc">Table sex</h1>
+<article aria-label="One-Way Frequencies">
+<h1 class="contentitem toc">One-Way Frequencies</h1>
+<table class="table" style="border-spacing: 0" aria-label="One-Way Frequencies">
+<caption aria-label="One-Way Frequencies"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="5" scope="colgroup">Gender</th>
+</tr>
+<tr>
+<th class="b header" scope="col">sex</th>
+<th class="r b header" scope="col">Frequency</th>
+<th class="r b header" scope="col">Percent</th>
+<th class="r b header" scope="col">Cumulative<br/>Frequency</th>
+<th class="r b header" scope="col">Cumulative<br/>Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">female</th>
+<td class="r data">276</td>
+<td class="r data">88.46</td>
+<td class="r data">276</td>
+<td class="r data">88.46</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">male</th>
+<td class="r data">36</td>
+<td class="r data">11.54</td>
+<td class="r data">312</td>
+<td class="r data">100.00</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+</section>
+<section data-name="Freq" data-sec-type="proc">
+<hr class="pagebreak"/>
+<div id="IDX9" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Table of Sex by Age</span> </p>
+</div>
+<div class="proc_title_group">
+<p class="c proctitle">The FREQ Procedure</p>
+</div>
+<h1 class="contentprocname toc">The Freq Procedure</h1>
+<section>
+<h1 class="contentfolder toc">Table sex * stage</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col/></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="6" scope="colgroup">Table&#160;of&#160;sex&#160;by&#160;stage</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">sex(Gender)</th>
+<th class="c b header" colspan="5" scope="colgroup">stage(Histologic Stage, Ludwig Criteria)</th>
+</tr>
+<tr>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">2</th>
+<th class="r header" scope="col">3</th>
+<th class="r header" scope="col">4</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="t rowheader" scope="row">female</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">8</div>
+<div class="r t">5.06</div>
+<div class="r t">5.44</div>
+<div class="r t">80.00</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">32</div>
+<div class="r t">20.25</div>
+<div class="r t">21.77</div>
+<div class="r t">88.89</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">64</div>
+<div class="r t">40.51</div>
+<div class="r t">43.54</div>
+<div class="r t">92.75</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">43</div>
+<div class="r t">27.22</div>
+<div class="r t">29.25</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">147</div>
+<div class="r t">93.04</div>
+<div class="r t">&#160;</div>
+<div class="r t">&#160;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">male</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">2</div>
+<div class="r t">1.27</div>
+<div class="r t">18.18</div>
+<div class="r t">20.00</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">4</div>
+<div class="r t">2.53</div>
+<div class="r t">36.36</div>
+<div class="r t">11.11</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">5</div>
+<div class="r t">3.16</div>
+<div class="r t">45.45</div>
+<div class="r t">7.25</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">0</div>
+<div class="r t">0.00</div>
+<div class="r t">0.00</div>
+<div class="r t">0.00</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">11</div>
+<div class="r t">6.96</div>
+<div class="r t">&#160;</div>
+<div class="r t">&#160;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">10</div>
+<div class="r t">6.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">36</div>
+<div class="r t">22.78</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">69</div>
+<div class="r t">43.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">43</div>
+<div class="r t">27.22</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">158</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</article>
+</section>
+</section>
+<section data-name="Freq" data-sec-type="proc">
+<hr class="pagebreak"/>
+<div id="IDX10" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Table of Customers Type by Group</span> </p>
+</div>
+<div class="proc_title_group">
+<p class="c proctitle">The FREQ Procedure</p>
+</div>
+<h1 class="contentprocname toc">The Freq Procedure</h1>
+<section>
+<h1 class="contentfolder toc">Table Customer_Type * Customer_Group</h1>
+<article aria-label="LIST Frequencies">
+<h1 class="contentitem toc">LIST Frequencies</h1>
+<table class="table" style="border-spacing: 0" aria-label="LIST Frequencies">
+<caption aria-label="LIST Frequencies"></caption>
+<colgroup><col/><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="b header" scope="col">Customer_Type</th>
+<th class="b header" scope="col">Customer_Group</th>
+<th class="r b header" scope="col">Frequency</th>
+<th class="r b header" scope="col">Percent</th>
+<th class="r b header" scope="col">Cumulative<br/>Frequency</th>
+<th class="r b header" scope="col">Cumulative<br/>Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Internet/Catalog Customers</th>
+<th class="rowheader" scope="row">Internet/Catalog Customers</th>
+<td class="r data">3</td>
+<td class="r data">15.00</td>
+<td class="r data">3</td>
+<td class="r data">15.00</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Orion  Club members high activity</th>
+<th class="rowheader" scope="row">Orion Club members</th>
+<td class="r data">3</td>
+<td class="r data">15.00</td>
+<td class="r data">6</td>
+<td class="r data">30.00</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Orion  Club members medium activity</th>
+<th class="rowheader" scope="row">Orion Club members</th>
+<td class="r data">6</td>
+<td class="r data">30.00</td>
+<td class="r data">12</td>
+<td class="r data">60.00</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Orion Club Gold members high activity</th>
+<th class="rowheader" scope="row">Orion Club Gold members</th>
+<td class="r data">2</td>
+<td class="r data">10.00</td>
+<td class="r data">14</td>
+<td class="r data">70.00</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Orion Club Gold members medium activity</th>
+<th class="rowheader" scope="row">Orion Club Gold members</th>
+<td class="r data">1</td>
+<td class="r data">5.00</td>
+<td class="r data">15</td>
+<td class="r data">75.00</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Orion Club members low activity</th>
+<th class="rowheader" scope="row">Orion Club members</th>
+<td class="r data">5</td>
+<td class="r data">25.00</td>
+<td class="r data">20</td>
+<td class="r data">100.00</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section id="IDX11">
+<h1 class="contentfolder toc">Table Customer_Group * Customer_Type</h1>
+<article aria-label="LIST Frequencies">
+<h1 class="contentitem toc">LIST Frequencies</h1>
+<table class="table" style="border-spacing: 0" aria-label="LIST Frequencies">
+<caption aria-label="LIST Frequencies"></caption>
+<colgroup><col/><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="b header" scope="col">Customer_Group</th>
+<th class="b header" scope="col">Customer_Type</th>
+<th class="r b header" scope="col">Frequency</th>
+<th class="r b header" scope="col">Percent</th>
+<th class="r b header" scope="col">Cumulative<br/>Frequency</th>
+<th class="r b header" scope="col">Cumulative<br/>Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Internet/Catalog Customers</th>
+<th class="rowheader" scope="row">Internet/Catalog Customers</th>
+<td class="r data">3</td>
+<td class="r data">15.00</td>
+<td class="r data">3</td>
+<td class="r data">15.00</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Orion Club Gold members</th>
+<th class="rowheader" scope="row">Orion Club Gold members high activity</th>
+<td class="r data">2</td>
+<td class="r data">10.00</td>
+<td class="r data">5</td>
+<td class="r data">25.00</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Orion Club Gold members</th>
+<th class="rowheader" scope="row">Orion Club Gold members medium activity</th>
+<td class="r data">1</td>
+<td class="r data">5.00</td>
+<td class="r data">6</td>
+<td class="r data">30.00</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Orion Club members</th>
+<th class="rowheader" scope="row">Orion  Club members high activity</th>
+<td class="r data">3</td>
+<td class="r data">15.00</td>
+<td class="r data">9</td>
+<td class="r data">45.00</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Orion Club members</th>
+<th class="rowheader" scope="row">Orion  Club members medium activity</th>
+<td class="r data">6</td>
+<td class="r data">30.00</td>
+<td class="r data">15</td>
+<td class="r data">75.00</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Orion Club members</th>
+<th class="rowheader" scope="row">Orion Club members low activity</th>
+<td class="r data">5</td>
+<td class="r data">25.00</td>
+<td class="r data">20</td>
+<td class="r data">100.00</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+</section>
+<section data-name="Freq" data-sec-type="proc">
+<hr class="pagebreak"/>
+<div id="IDX12" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Table of Treatment by Response</span> </p>
+</div>
+<div class="proc_title_group">
+<p class="c proctitle">The FREQ Procedure</p>
+</div>
+<h1 class="contentprocname toc">The Freq Procedure</h1>
+<section>
+<h1 class="contentfolder toc">Table treatment * response</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col/></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&#160;of&#160;treatment&#160;by&#160;response</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">treatment</th>
+<th class="c b header" colspan="3" scope="colgroup">response</th>
+</tr>
+<tr>
+<th class="r header" scope="col">Improved</th>
+<th class="r header" scope="col">Same</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="t rowheader" scope="row">Active</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">16</div>
+<div class="r t">26.67</div>
+<div class="r t">51.61</div>
+<div class="r t">66.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">15</div>
+<div class="r t">25.00</div>
+<div class="r t">48.39</div>
+<div class="r t">41.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">31</div>
+<div class="r t">51.67</div>
+<div class="r t">&#160;</div>
+<div class="r t">&#160;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Placebo</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">8</div>
+<div class="r t">13.33</div>
+<div class="r t">27.59</div>
+<div class="r t">33.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">21</div>
+<div class="r t">35.00</div>
+<div class="r t">72.41</div>
+<div class="r t">58.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">48.33</div>
+<div class="r t">&#160;</div>
+<div class="r t">&#160;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">24</div>
+<div class="r t">40.00</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">36</div>
+<div class="r t">60.00</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">60</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</article>
+<div class="proc_note_group">
+<p class="c proctitle">Statistics for Table of treatment by response</p>
+</div>
+<article id="IDX13" aria-label="Sensitivity and Specificity">
+<h1 class="contentitem toc">Sensitivity and Specificity</h1>
+<table class="table" style="border-spacing: 0" aria-label="Sensitivity and Specificity">
+<caption aria-label="Sensitivity and Specificity"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="5" scope="colgroup">Sensitivity and Specificity</th>
+</tr>
+<tr>
+<th class="b header" scope="col">Statistic</th>
+<th class="r b header" scope="col">Estimate</th>
+<th class="r b header" scope="col">Standard Error</th>
+<th class="r b header" colspan="2" scope="colgroup">95%&#160;Confidence&#160;Limits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Sensitivity</th>
+<td class="r data">0.6667</td>
+<td class="r data">0.0962</td>
+<td class="r data">0.4781</td>
+<td class="r data">0.8553</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Specificity</th>
+<td class="r data">0.5833</td>
+<td class="r data">0.0822</td>
+<td class="r data">0.4223</td>
+<td class="r data">0.7444</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Positive Predictive Value</th>
+<td class="r data">0.5161</td>
+<td class="r data">0.0898</td>
+<td class="r data">0.3402</td>
+<td class="r data">0.6920</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Negative Predictive Value</th>
+<td class="r data">0.7241</td>
+<td class="r data">0.0830</td>
+<td class="r data">0.5615</td>
+<td class="r data">0.8868</td>
+</tr>
+</tbody>
+</table>
+</article>
+<div class="proc_note_group">
+<p class="c proctitle">Sample Size = 60</p>
+</div>
+</section>
+</section>
+</div>
+</body>
+</html>

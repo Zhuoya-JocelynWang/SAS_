@@ -1,0 +1,137 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              305.12k
+      OS Memory           19104.00k
+      Timestamp           10/04/2024 05:43:03 PM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     27
+      Page Swaps                        0
+      Voluntary Context Switches        11
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+71         
+72         /************************************************************************************
+73            Project: BIOS 511
+74         
+75            Program Name: Lab11
+76         
+77            Author : Jocelyn(Zhuoya) Wang
+78         
+79            Date Created: 2024.10.02
+80         
+81            Purpose : This program is a practice of Proc SGPlots and Proc SGPanel
+82         **************************************************************************************/
+83         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+84         options nofullstimer;
+85         
+86         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+87         run; /*access a libref in class folder*/
+88         
+89         ods pdf file = '/home/u63982087/BIOS511/Output/lab11_730784042.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab11_730784042.pdf", printer "PDF".
+90         /* create a pdf file */
+91         
+92         
+93         
+94         /***** Question 1 *****/
+95         title " Boxplots for Tumor Size by Treatment & Stage";
+96         proc sgpanel data = classlib.prostate;/*use the data where tumorsize ≠ -9999*/
+NOTE: Data file CLASSLIB.PROSTATE.DATA is in a format that is native to another host, or the file encoding does not match the 
+      session encoding. Cross Environment Data Access will be used, which might require additional CPU resources and might reduce 
+      performance.
+97           where tumorsize ^= -9999;
+98           panelby treatment stage/ columns = 4 ;/*panel by thretment and state, set 4 cols*/
+2                                                          The SAS System                       Friday, October  4, 2024 01:43:03 PM
+
+99           hbox tumorsize / outlierattrs=(color=red)
+100                      displaystats = (mean);/*create horizontal box of tumortsize,
+101                                             change the outlir to red, display the mean value*/
+102        run;
+
+NOTE: PROCEDURE SGPANEL used (Total process time):
+      real time           2.70 seconds
+      cpu time            0.14 seconds
+      
+NOTE: There were 499 observations read from the data set CLASSLIB.PROSTATE.
+      WHERE tumorsize not = -9999;
+
+103        
+104        
+105        
+106        /***** Question 2 *****/
+107        title "Histogram & Density for BW by Proc Sgpanel";
+108        proc sgpanel data= classlib.preemies noautolegend;/*do not print legend of plots*/
+NOTE: Data file CLASSLIB.PREEMIES.DATA is in a format that is native to another host, or the file encoding does not match the 
+      session encoding. Cross Environment Data Access will be used, which might require additional CPU resources and might reduce 
+      performance.
+109           panelby sex / novarname  ;/*panel by sex without showing the variable name*/
+110           histogram bw; /*create histogram of bw*/
+111           density bw/ lineattrs=(color = purple);/*create density line of bw, color it in purple*/
+112           colaxis label = "Birth Weight";/*apply label to numeric result variable*/
+113           rowaxis label= "Percent(%)"  values = (0 to 50 by 10);/*label row axis, adjust scale*/
+114        run;
+
+NOTE: PROCEDURE SGPANEL used (Total process time):
+      real time           0.34 seconds
+      cpu time            0.07 seconds
+      
+NOTE: There were 30 observations read from the data set CLASSLIB.PREEMIES.
+
+115        
+116        
+117        /***** Question 3 *****/
+118        
+119        proc sort data = classlib.preemies out = my_preemies;
+NOTE: Data file CLASSLIB.PREEMIES.DATA is in a format that is native to another host, or the file encoding does not match the 
+      session encoding. Cross Environment Data Access will be used, which might require additional CPU resources and might reduce 
+      performance.
+120              by sex;/*sort data by sex*/
+121        run;
+
+NOTE: There were 30 observations read from the data set CLASSLIB.PREEMIES.
+NOTE: The data set WORK.MY_PREEMIES has 30 observations and 16 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+122        
+123        
+124        option nobyline;/*suppress byline*/
+125        title "Histogram & Density for BW by Proc Sgplot ";
+126        title2 '#byvar1 = #byval1 for this graph';/*generate title contain the value of sex*/
+127        proc  sgplot data = my_preemies noautolegend;/*plot without lengend*/
+3                                                          The SAS System                       Friday, October  4, 2024 01:43:06 PM
+
+128           histogram bw;/*create histogram of bw*/
+129           density bw/lineattrs=(color = purple) ;/*create density line of bw, color it in purple*/
+130           by sex; /*show the plot by sex*/
+131           yaxis label='Percent (%)' values=(0 to 50 by 10);/*label yaxis, ajust the scale*/
+132           xaxis label='Birth Weight';/*label xaxis*/
+133        run;
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           0.30 seconds
+      cpu time            0.09 seconds
+      
+NOTE: There were 30 observations read from the data set WORK.MY_PREEMIES.
+
+134        
+135        
+136        
+137        ods pdf close;/*close the pdf file*/
+NOTE: ODS PDF printed 4 pages to /home/u63982087/BIOS511/Output/lab11_730784042.pdf.
+138        
+139        ods _all_ close;
+140        proc printto; run;
+

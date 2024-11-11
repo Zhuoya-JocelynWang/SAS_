@@ -1,0 +1,209 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              305.84k
+      OS Memory           20640.00k
+      Timestamp           10/12/2024 10:49:31 PM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     24
+      Page Swaps                        0
+      Voluntary Context Switches        9
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+71         
+72         /************************************************************************************
+73            Project: BIOS 511
+74         
+75            Program Name: Lab13
+76         
+77            Author : Jocelyn(Zhuoya) Wang
+78         
+79            Date Created: 2024.10.09
+80         
+81            Purpose : This program is a practice of DATA Step Statements
+82         **************************************************************************************/
+83         
+84         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+85         options nofullstimer;
+86         
+87         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB refers to the same physical library as _TEMP0.
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+88         run; /*access a libref in class folder*/
+89         
+90         ods pdf file = '/home/u63982087/BIOS511/Output/lab13_730784042.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab13_730784042.pdf", printer "PDF".
+91         /* create a pdf file */
+92         
+93         
+94         /***** Question 1 *****/
+95         data my_lb; /*tempporary version of lb dataset*/
+96         set classlib.lb; /* data used in the following process*/
+97         
+98            where visit = "Week 32";/*only use the data where visit is Week 32*/
+99            lbcat = propcase(lbcat);/*first lettre is uppercase in lbcat variable*/
+100        
+2                                                          The SAS System                     Saturday, October 12, 2024 06:49:31 PM
+
+101           length new_cvar $100; /*set length of new variable called new_car equals 100*/
+102           new_cvar = catx(": ", lbcat,lbtest);/*assign values to new variable with a lbcat: lbtest format*/
+103        
+104           keep usubjid visit lbstresn new_cvar;/*only keep these variables*/
+105        run;
+
+NOTE: There were 1806 observations read from the data set CLASSLIB.LB.
+      WHERE visit='Week 32';
+NOTE: The data set WORK.MY_LB has 1806 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+106        
+107        
+108        /***** Question 2 *****/
+109        ods exclude enginehost;/*exclude enginehost from the output*/
+110        
+111        proc contents data = my_lb;/* provide information about my_lb*/
+112        title "Contents of Temporary lb Dataset";
+113        run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+114        
+115        ods select all;/*reset ods to avoding affect the follwoing output*/
+116        
+117        
+118        /***** Question 3 *****/
+119        data my_lm;/*temp version of lm dataset*/
+120        set classlib.learn_modalities (keep= district_name
+121                                      operational_schools student_count);
+122                                      /*data used in the following process, and only
+123                                      keep these variables*/
+124        
+125          student_perschool = (student_count/operational_schools);/*calculate average
+126                                                    number of students per operational school*/
+127        
+128          if student_perschool > 2000;/*use the data that student_perschool is greater than 2000*/
+129        
+130          label student_perschool = "Average number of students per
+131                                     operational school";/*label the new variable*/
+132        
+133          drop operational_schools student_count;/*drop these two variables from my_lm*/
+134        run;
+
+NOTE: Missing values were generated as a result of performing an operation on missing values.
+      Each place is given by: (Number of times) at (Line):(Column).
+      182 at 125:37   
+NOTE: There were 429865 observations read from the data set CLASSLIB.LEARN_MODALITIES.
+NOTE: The data set WORK.MY_LM has 591 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.05 seconds
+3                                                          The SAS System                     Saturday, October 12, 2024 06:49:31 PM
+
+      
+
+135        
+136        
+137        /***** Question 4 *****/
+138        proc sort data = my_lm out = temp_lm nodupkey;/* sort my_lm data, name output
+139                                                      dataset as temp_lm, no replicates*/
+140        
+141          by descending student_perschool district_name;/*sort data by descending order of
+142                                                    these two variables*/
+143        run;
+
+NOTE: There were 591 observations read from the data set WORK.MY_LM.
+NOTE: 561 observations with duplicate key values were deleted.
+NOTE: The data set WORK.TEMP_LM has 30 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+144        
+145        
+146        /***** Question 5 *****/
+147        proc print data = temp_lm (obs=25) label;/*print 25 obs of the dataset with variable Label*/
+148        title" 25 Observation Sorted by Avg Num of Student Per School";
+149        run;
+
+NOTE: There were 25 observations read from the data set WORK.TEMP_LM.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+150        
+151        
+152        /***** Question 6 *****/
+153        data my_ed; /*temp dataset of employee_donations*/
+154        set classlib.employee_donations;/*data used to compute the output in the tempdata*/
+155           total_donation = sum(of qtr1 - qtr4);/* new var = calculate the total donation of 4 quarters*/
+156           label total_donation =" Year's Total Donation For Each Employee";/*create label
+157                                                                           of the new variable*/
+158        run;
+
+NOTE: There were 124 observations read from the data set CLASSLIB.EMPLOYEE_DONATIONS.
+NOTE: The data set WORK.MY_ED has 124 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+159        
+160        
+161        /***** Question 7 *****/
+162        ods noproctitle; /* suppress the procedure name*/
+163        proc means data = my_ed n mean nonobs;/* apply proc mean, show sum and mean
+164                                           of my_ed dataset, suppress the observation number*/
+165        
+166          class paid_by;/*generate statistics by paid_by variable*/
+4                                                          The SAS System                     Saturday, October 12, 2024 06:49:31 PM
+
+167          var total_donation;/* analysis variable of proc mean procedure*/
+168          title "Sum and Mean of Year's Total Donation by Payment Type";
+169        run;
+
+NOTE: There were 124 observations read from the data set WORK.MY_ED.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+170        
+171        /***** Question 8 *****/
+172        proc freq data = sashelp.heart(rename = (chol_status = chol bp_status = bp));
+173                        /* apply proc freq on the dataset, rename two variables*/
+174        
+175           tables chol*bp;/* create crosstabulation of the two variables*/
+176        
+177           title "Combination of Cholesterol Status & Blood Pressure Status";
+178        run;
+
+NOTE: There were 5209 observations read from the data set SASHELP.HEART.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.02 seconds
+      
+
+179        
+180        
+181        ods pdf close;/*close the pdf file*/
+NOTE: ODS PDF printed 4 pages to /home/u63982087/BIOS511/Output/lab13_730784042.pdf.
+182        ods _all_ close;
+183        
+184        proc printto; run;
+

@@ -1,0 +1,183 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+70         /****************************************************************************
+71            Project: BIOS 511
+72         
+73            Program Name: Lab5
+74         
+75            Author : Jocelyn(Zhuoya) Wang
+76         
+77            Date Created: 2024.08.28
+78         
+79            Purpose : This program is designed to practice proc print and proc freq
+80         *****************************************************************************/
+81         
+82         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+83         options nofullstimer;
+84         
+85         
+86         /*Question 1*/
+87         
+88         libname mylib '/home/u63982087/BIOS511/Data';
+NOTE: Libref MYLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/BIOS511/Data
+88       !                                              /*access a libref in my personal folder*/
+89         run;
+90         
+91         proc sort data = sashelp.failure out = work.sas_fail;
+92         
+93              by cause; /* sort data by 'cause' and store the it in temporary dataset*/
+94         run;
+
+NOTE: There were 70 observations read from the data set SASHELP.FAILURE.
+NOTE: The data set WORK.SAS_FAIL has 70 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+95         
+96         title "Day & Count in Sashelp.failure Dataset by Cause "; /*add title of the output*/
+97         
+98         proc print data = sas_fail;
+99         
+100           by cause;  /*print by the variable 'cause'*/
+101        
+102           var day count; /*only print the 'dat' and 'count' variables*/
+103        run;
+
+NOTE: There were 70 observations read from the data set WORK.SAS_FAIL.
+2                                                          The SAS System                   Thursday, September  5, 2024 09:49:32 AM
+
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+104        
+105        
+106        /*Question 2*/
+107        
+108        libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+109        run; /*access a libref in class folder*/
+110        
+111        proc print data = classlib.employee_donations noobs label; /* print this dataset with label name & without obs number*/
+112        
+113            options missing = 0; /* changing numeric missing value from . to 0*/
+114        
+115            label Paid_By = "Type_of_Payment"; /* label 'Paid_By' variable by "Type_of_Payment"*/
+116        
+117            format qtr: dollar8.2; /*change all quarter variables with dollar sign & 2 decimal places*/
+118        
+119            var paid_by recipients qtr:;/* print in this order*/
+120        
+121            sum qtr:; /* sum the values in each quarter variable*/
+122        
+123            title "Employee Donations in Dollars";/*add title of the output*/
+124        run;
+
+NOTE: There were 124 observations read from the data set CLASSLIB.EMPLOYEE_DONATIONS.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.09 seconds
+      
+
+125        
+126        
+127        /*Question 3*/
+128        
+129        title "Frequency Table of Gender";/*add title of the output*/
+130        
+131        proc freq data = classlib.primary_biliary_cirrhosis;/*calculate the frequency of pbc dataset*/
+132        
+133           where drug ^= "not randomized";/* only for those subjects with treatments*/
+134        
+135           tables sex;/* only computing the table for sex variable*/
+136        run;
+
+NOTE: There were 312 observations read from the data set CLASSLIB.PRIMARY_BILIARY_CIRRHOSIS.
+      WHERE drug not = 'not randomized';
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+137        
+138        
+3                                                          The SAS System                   Thursday, September  5, 2024 09:49:32 AM
+
+139        
+140        /*Question 4*/
+141        
+142        title "Table of Sex by Age";/*add title of the output*/
+143        
+144        proc freq data = classlib.primary_biliary_cirrhosis;/*calculate the frequency of pbc dataset*/
+145        
+146            where drug ^= "not randomized" and age < 50;/* only use the data for the those subjects
+147                                                        who are having treatmentand age < 50*/
+148        
+149            tables sex*stage;/*creating a crosstabulation of sex and age*/
+150        run;
+
+NOTE: There were 158 observations read from the data set CLASSLIB.PRIMARY_BILIARY_CIRRHOSIS.
+      WHERE (drug not = 'not randomized') and (age<50);
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+151        
+152        
+153        /*Question 5*/
+154        
+155        title "Table of Customers Type by Group";/*add title of the output*/
+156        
+157        proc freq data = classlib.customer_dim; /*calculate the frequency of cd dataset*/
+158        
+159           where customer_age > 50;/*only use the data with age >50*/
+160        
+161           tables Customer_Type * Customer_Group/list;/* create table in different order by customer
+162                                                       type & group in two statement*/
+163           tables Customer_Group * Customer_Type/list;
+164        run;
+
+NOTE: There were 20 observations read from the data set CLASSLIB.CUSTOMER_DIM.
+      WHERE customer_age>50;
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+164      !      /*in these two statement, the option like was used to provide those
+165             percent & cumulative values in list format*/
+166        
+167        
+168        /*Question 6*/
+169        
+170        title "Table of Treatment by Response";/*add title of the output*/
+171        
+172        proc freq data = classlib.migraine;/*calculate the frequency of migraine dataset*/
+173        
+174            tables treatment*response/senspec; /*create a crosstabulation of treatment & response
+175                                      variables and provide generate statistical table by SENSPEC*/
+176        run;
+
+NOTE: There were 60 observations read from the data set CLASSLIB.MIGRAINE.
+NOTE: PROCEDURE FREQ used (Total process time):
+4                                                          The SAS System                   Thursday, September  5, 2024 09:49:32 AM
+
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+177        
+178        proc printto; run;
+

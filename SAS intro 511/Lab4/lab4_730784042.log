@@ -1,0 +1,136 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              307.06k
+      OS Memory           19104.00k
+      Timestamp           08/31/2024 12:38:38 AM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     25
+      Page Swaps                        0
+      Voluntary Context Switches        9
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+70         /* Project: BIOS 511
+71         
+72            Program Name: Lab4
+73         
+74            Author : Jocelyn(Zhuoya) Wang
+75         
+76            Date Created: 2024.08.28
+77         
+78            Purpose : This program is designed to practice proc sort and proc contents */
+79         
+80         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+81         options nofullstimer;
+82         
+83         
+84         /* Question1 */
+85         /*accesse a libref that points to the Data foler under u49231441 folder under the  my_shared_file_links folder*/
+86         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+87         run;
+88         
+89         proc sort data = classlib.customer_dim out = work.customer_dim;/*sort & store the customer dataset in temporary set*/
+90            by Customer_LastName;/*sort the dataset by LastName*/
+91         run;
+
+NOTE: There were 77 observations read from the data set CLASSLIB.CUSTOMER_DIM.
+NOTE: The data set WORK.CUSTOMER_DIM has 77 observations and 11 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+92         
+93         
+94         /* Question2 */
+2                                                          The SAS System                        Friday, August 30, 2024 08:38:38 PM
+
+95         
+96         proc sort data = classlib.primary_biliary_cirrhosis out = work.pbc (keep= drug status spiders) nodupkey;/*present unique
+96       ! obs in the three variables*/
+97               by drug status spiders;/*sort by these 3 variabels &store in temporary dataset*/
+98         run;
+
+NOTE: There were 418 observations read from the data set CLASSLIB.PRIMARY_BILIARY_CIRRHOSIS.
+NOTE: 408 observations with duplicate key values were deleted.
+NOTE: The data set WORK.PBC has 10 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+99         
+100        /* Question3 */
+101        
+102        proc sort data = classlib.drivers out = work.drivers;/*sort & store drivers dataset*/
+103             by cohort; /*sort by variable 'cohort'*/
+104        run;
+
+NOTE: There were 57834 observations read from the data set CLASSLIB.DRIVERS.
+NOTE: The data set WORK.DRIVERS has 57834 observations and 5 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+105        
+106        /* Question4 */
+107        libname mylib '/home/u63982087/BIOS511/Data';
+NOTE: Libref MYLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/BIOS511/Data
+107      !                                              /*access a libref in my personal folder*/
+108        run;
+109        
+110        proc sort data = classlib.drivers out = mylib.drivers; /*store drivers in my personal set*/
+111            where state = 'North Carolina';/*only obs satifying state ='NC' will be used by the PROC*/
+112            by gender;/*sort these obs by gender*/
+113        run;
+
+NOTE: There were 1134 observations read from the data set CLASSLIB.DRIVERS.
+      WHERE state='North Carolina';
+NOTE: The data set MYLIB.DRIVERS has 1134 observations and 5 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+114        
+115        /* Question5 */
+116        title "Variable Name of Customer_Dim Dataset Ordered by Last Name "; /*title the output*/
+117        proc contents data = work.customer_dim varnum; /*print the information of customer dataset, and print variables by
+117      ! previous order*/
+118        run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+3                                                          The SAS System                        Friday, August 30, 2024 08:38:38 PM
+
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+119        
+120        
+121        /* Question6 */
+122        proc contents data = work.customer_dim out = work.temp_cdsup NOPRINT;/*print & store the contents in temporary dataset &
+122      ! suppress the outpus*/
+123        run;
+
+NOTE: The data set WORK.TEMP_CDSUP has 11 observations and 41 variables.
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+124        
+125        proc printto; run;
+

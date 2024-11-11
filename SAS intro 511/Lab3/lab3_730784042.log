@@ -1,0 +1,125 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              281.71k
+      OS Memory           20640.00k
+      Timestamp           08/26/2024 05:15:52 PM
+      Step Count                        34  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     20
+      Page Swaps                        0
+      Voluntary Context Switches        10
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+70         /* Project: BIOS 511
+71         
+72            Program Name: Lab3
+73         
+74            Author : Jocelyn(Zhuoya) Wang
+75         
+76            Date Created: 2024.08.26
+77         
+78            Purpose : This program is designed to practice Library and GlobalStatements */
+79         
+80         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+81         options nofullstimer;
+82         
+83         /*4*/
+84         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+85         /*accesse a libref that points to the Data foler under u49231441 folder under the  my_shared_file_links folder*/
+86         run;
+87         
+88         /*5*/
+89         libname mylib '/home/u63982087/BIOS511/Data';
+NOTE: Libref MYLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/BIOS511/Data
+90         /*accesse a libref that points to the Data foler under my own BIOS511 folder*/
+91         run;
+92         
+93         /*6*/
+94         data work.temp_dmvs ; /*create a dataset called temp_dmvs in the temporary library called work*/
+95         set classlib.dmvs; /*pulling in data from the dmvs dataset located in a permanenet library called classlib*/
+96         run;
+
+NOTE: There were 602 observations read from the data set CLASSLIB.DMVS.
+NOTE: The data set WORK.TEMP_DMVS has 602 observations and 20 variables.
+2                                                          The SAS System                        Monday, August 26, 2024 01:15:52 PM
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+97         
+98         /*7*/
+99         data mylib.perm_dmvs;/* a dataset perm_dmvs was created in a pernmant library called mylib*/
+100        set classlib.dmvs; /*pulling in data from the dmvs dataset located in a permanenet library called classlib*/
+101        run;
+
+NOTE: There were 602 observations read from the data set CLASSLIB.DMVS.
+NOTE: The data set MYLIB.PERM_DMVS has 602 observations and 20 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+102        
+103        /*8*/
+104        options obs = 5; /* read&present the first 5 rows or observations in the dataset */
+105        title "Preview of Temp_dmvs Dataset from Class Library"; /*provide title for the output*/
+106        footnote "Data in temporary'work' library was extracted
+107        from 'classlib.dmvs' and the first 5 observations were presented."; /*provide footnote for the output*/
+108        proc print data = temp_dmvs;/*print result*/
+109        run;
+
+NOTE: There were 5 observations read from the data set WORK.TEMP_DMVS.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+110        
+111        /*9*/
+112        options VALIDVARNAME = V7; /*change the rules for valid SAS names to V7 standard*/
+113        options YEARCUTOFF = 1920; /*specifies the first year of a hundred-year span, interpret two-digit dates between 1920 to
+113      ! 2019*/
+114        
+115        /*10*/
+116        /*verify the changes in #9 */
+117        proc options option=validvarname;
+118        run;
+
+    SAS (r) Proprietary Software Release 9.4  TS1M7
+
+ VALIDVARNAME=V7   Specifies the rules for valid SAS variable names that can be created and processed during a SAS session.
+NOTE: PROCEDURE OPTIONS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+119        proc options option=yearcutoff;
+120        run;
+
+    SAS (r) Proprietary Software Release 9.4  TS1M7
+
+ YEARCUTOFF=1920   Specifies the first year of a 100-year span that is used by date informats and functions to read a two-digit 
+3                                                          The SAS System                        Monday, August 26, 2024 01:15:52 PM
+
+                   year.
+NOTE: PROCEDURE OPTIONS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+121        
+122        proc printto; run;
+

@@ -1,0 +1,198 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              306.09k
+      OS Memory           19104.00k
+      Timestamp           10/23/2024 04:08:41 PM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     27
+      Page Swaps                        0
+      Voluntary Context Switches        10
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+71         
+72         
+73         /************************************************************************************
+74            Project: BIOS 511
+75         
+76            Program Name: Lab16
+77         
+78            Author : Jocelyn(Zhuoya) Wang
+79         
+80            Date Created: 2024.10.23
+81         
+82            Purpose : This program is a practice of SAS-supplied formats
+83         **************************************************************************************/
+84         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+85         options nofullstimer;
+86         
+87         
+88         
+89         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+90         run; /*access a libref in class folder*/
+91         
+92         ods pdf file = '/home/u63982087/BIOS511/Output/lab16_730784042.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab16_730784042.pdf", printer "PDF".
+93         /* create a pdf file */
+94         
+95         
+96         /***** Question 1 *****/
+97         proc format;
+97       !              /*creat format of numetic variable*/
+98           value yn /*name variable*/
+99           0 = "No"
+100          1 = "Yes";
+2                                                          The SAS System                    Wednesday, October 23, 2024 12:08:41 PM
+
+NOTE: Format YN has been output.
+100      !             /*apply values*/
+101        run;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+102        
+103        
+104        /***** Question 2 *****/
+105        proc format fmtlib;
+105      !                    /*creat format of numetic variable*/
+106            value marital_value /*name the variable*/
+107            1 = "Single"
+108            2 = "Married"
+109            3 = "Spearated"
+110            4 = "Divorced"
+111            5 = "Widowed";
+NOTE: Format MARITAL_VALUE has been output.
+111      !                   /* apply numeric value to each cat*/
+112           title "Q2: Format Contents of Variable";
+113        run;
+
+NOTE: PROCEDURE FORMAT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+114        
+115        
+116        /***** Question 3 *****/
+117        proc sgplot data = classlib.depression; /*apply plots*/
+118          format marital marital_value. acuteillness yn.; /*apply variables to marital and acuteillness*/
+119          vbar marital / group = acuteillness
+120                        seglabel ;/*create vertical barplot,
+121                                                  group by acuteillness,
+122                                               label the frequency of each segment*/
+123          keylegend /position = topright
+124                    location = inside across=1
+125                    title = "Response"; /* asjust legent position and title*/
+126          title "Q3: Vertical Barplot of Marital Status";
+127        run;
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           2.12 seconds
+      cpu time            0.08 seconds
+      
+NOTE: There were 49 observations read from the data set CLASSLIB.DEPRESSION.
+
+128        
+129        
+130        /***** Question 4 *****/
+131        data temp_dm;
+132          set classlib.dm;
+133          informed_var = input(rficdtc, yymmdd10.);/*new variable from rficdtc with dateformat*/
+134          first_treat = input(rfxstdtc, yymmdd10.);/*new variable from rfxstdtc with dateformat*/
+3                                                          The SAS System                    Wednesday, October 23, 2024 12:08:44 PM
+
+135          last_treat = input(rfxendtc, yymmdd10.);/*new variable from rfxendtc with dateformat*/
+136          days_1st_infom = first_treat - informed_var;/*difference between 1st and inform data*/
+137          days_last_1st = last_treat - first_treat;/* difference between last and first study treatment*/
+138        run;
+
+NOTE: There were 602 observations read from the data set CLASSLIB.DM.
+NOTE: The data set WORK.TEMP_DM has 602 observations and 20 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+139        
+140        
+141        /***** Question 5 *****/
+142        proc means data = temp_dm; /*apply proc means*/
+143          class sex race; /*class data by sex and race*/
+144          var days_1st_infom days_last_1st;/*only include the two variables*/
+145          title " Q5: Table of Days Difference by Sex and Race";
+146        run;
+
+NOTE: There were 602 observations read from the data set WORK.TEMP_DM.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.08 seconds
+      
+
+147        
+148        
+149        /***** Question 6 *****/
+150        proc freq data = classlib.primary_biliary_cirrhosis noprint; /* apply proc freq to
+151                                              the dataset without output print*/
+152          tables drug*status/ out = data_q6; /*combination of drug and status
+153        run;
+154        
+155        
+156        /***** Question 7 *****/
+
+NOTE: There were 418 observations read from the data set CLASSLIB.PRIMARY_BILIARY_CIRRHOSIS.
+NOTE: The data set WORK.DATA_Q6 has 6 observations and 4 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+157        data q7_data; /*create newset based on data_q6*/
+158          set data_q6;
+159          length cha_var $15; /*create a character variable with length 15*/
+160          cha_var = put(percent, 8.2)||'%'; /*new var contains & and 2 decimal*/
+161          label cha_var = "Character variable of percent"; /*label it*/
+162        run;
+
+NOTE: There were 6 observations read from the data set WORK.DATA_Q6.
+NOTE: The data set WORK.Q7_DATA has 6 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+4                                                          The SAS System                    Wednesday, October 23, 2024 12:08:44 PM
+
+
+163        
+164        
+165        /***** Question 8 *****/
+166        proc print data = q7_data (obs =10) label; /*print the 1st 10 obs of q7_data with label*/
+167          var drug status cha_var;/*only show these variables*/
+168          title "Q8: Observations of Drug Status and Cha_var";
+169        run;
+
+NOTE: There were 6 observations read from the data set WORK.Q7_DATA.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+170        
+171        
+172        ods pdf close;/*close the pdf file*/
+NOTE: ODS PDF printed 4 pages to /home/u63982087/BIOS511/Output/lab16_730784042.pdf.
+173        ods _all_ close;
+174        
+175        proc printto; run;
+
