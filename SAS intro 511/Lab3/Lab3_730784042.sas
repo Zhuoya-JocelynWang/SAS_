@@ -1,4 +1,4 @@
-proc printto log='/home/u63982087/BIOS511/Logs/lab3_730784042.log' new;run;
+proc printto log='/home/u63982087/BIOS511/Logs/lab3_73XXXXXX.log' new;run;
 /* Project: BIOS 511
 
    Program Name: Lab3
@@ -9,7 +9,7 @@ proc printto log='/home/u63982087/BIOS511/Logs/lab3_730784042.log' new;run;
    
    Purpose : This program is designed to practice Library and GlobalStatements */
 
-%put %upcase(no)TE: Program being run by 730784042;
+%put %upcase(no)TE: Program being run by 73XXXXXX;
 options nofullstimer;
 
 /*4*/
