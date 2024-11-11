@@ -28,8 +28,8 @@ NOTE: PROCEDURE PRINTTO used (Total process time):
 81            Purpose : This program is a practice of ODS SELECT & ODS EXCLUDE, ODS OUTPUT, STYLE
 82         **************************************************************************************/
 83         
-84         %put %upcase(no)TE: Program being run by 730784042;
-NOTE: Program being run by 730784042
+84         %put %upcase(no)TE: Program being run by 73XXXXXX;
+NOTE: Program being run by 73XXXXXX
 85         options nofullstimer;
 86         
 87         
@@ -41,8 +41,8 @@ NOTE: Libref CLASSLIB was successfully assigned as follows:
 90         
 91         
 92         /***** Question 1 *****/
-93         ods rtf file = '/home/u63982087/BIOS511/Output/lab8_730784042.rtf' startpage = bygroup;
-NOTE: Writing RTF Body file: /home/u63982087/BIOS511/Output/lab8_730784042.rtf
+93         ods rtf file = '/home/u63982087/BIOS511/Output/lab8_73XXXXXX.rtf' startpage = bygroup;
+NOTE: Writing RTF Body file: /home/u63982087/BIOS511/Output/lab8_73XXXXXX.rtf
 94         /* Create rtf file and splite page for each group*/
 95         
 96         ods noproctitle;/*suppress the procedure title*/
@@ -99,8 +99,8 @@ NOTE: PROCEDURE PRINT used (Total process time):
 120        
 121        
 122        /***** Question 2 *****/
-123        ods pdf file = '/home/u63982087/BIOS511/Output/lab8_730784042.pdf' style = SAPPHIRE startpage = yes;
-NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab8_730784042.pdf", printer "PDF".
+123        ods pdf file = '/home/u63982087/BIOS511/Output/lab8_73XXXXXX.pdf' style = SAPPHIRE startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab8_73XXXXXX.pdf", printer "PDF".
 124        /* create a pdf file and change the style to SAPPHIRE*/
 125        
 126        
@@ -191,7 +191,7 @@ NOTE: PROCEDURE PRINT used (Total process time):
 165        
 166        
 167        ods pdf close;/*close the pdf file*/
-NOTE: ODS PDF printed 4 pages to /home/u63982087/BIOS511/Output/lab8_730784042.pdf.
+NOTE: ODS PDF printed 4 pages to /home/u63982087/BIOS511/Output/lab8_73XXXXXX.pdf.
 168        
 169        proc printto; run;
 
