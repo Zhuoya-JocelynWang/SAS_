@@ -1,4 +1,4 @@
-proc printto log='/home/u63982087/BIOS511/Logs/lab8_730784042.log' new;run;
+proc printto log='/home/u63982087/BIOS511/Logs/lab8_73XXXXXX.log' new;run;
 
 /************************************************************************************
    Project: BIOS 511
@@ -12,7 +12,7 @@ proc printto log='/home/u63982087/BIOS511/Logs/lab8_730784042.log' new;run;
    Purpose : This program is a practice of ODS SELECT & ODS EXCLUDE, ODS OUTPUT, STYLE
 **************************************************************************************/
  
-%put %upcase(no)TE: Program being run by 730784042;
+%put %upcase(no)TE: Program being run by 73XXXXXX;
 options nofullstimer;  
  
  
@@ -21,7 +21,7 @@ run; /*access a libref in class folder*/
 
 
 /***** Question 1 *****/
-ods rtf file = '/home/u63982087/BIOS511/Output/lab8_730784042.rtf' startpage = bygroup;
+ods rtf file = '/home/u63982087/BIOS511/Output/lab8_73XXXXXX.rtf' startpage = bygroup;
 /* Create rtf file and splite page for each group*/
 
 ods noproctitle;/*suppress the procedure title*/
@@ -51,7 +51,7 @@ ods rtf close; /*close the rtf file*/
   
   
 /***** Question 2 *****/
-ods pdf file = '/home/u63982087/BIOS511/Output/lab8_730784042.pdf' style = SAPPHIRE startpage = yes;
+ods pdf file = '/home/u63982087/BIOS511/Output/lab8_73XXXXXX.pdf' style = SAPPHIRE startpage = yes;
 /* create a pdf file and change the style to SAPPHIRE*/
 
 
