@@ -29,8 +29,8 @@ NOTE: PROCEDURE PRINTTO used (Total process time):
 82            Purpose : This program is a practice of multiple type of Proc SGPlots
 83         **************************************************************************************/
 84         
-85         %put %upcase(no)TE: Program being run by 730784042;
-NOTE: Program being run by 730784042
+85         %put %upcase(no)TE: Program being run by 73XXXXXX;
+NOTE: Program being run by 73XXXXXX
 86         options nofullstimer;
 87         
 88         
@@ -42,8 +42,8 @@ NOTE: Libref CLASSLIB was successfully assigned as follows:
 91         run; /*access a libref in class folder*/
 92         
 93         
-94         ods pdf file = '/home/u63982087/BIOS511/Output/lab10_730784042.pdf' startpage = yes;
-NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab10_730784042.pdf", printer "PDF".
+94         ods pdf file = '/home/u63982087/BIOS511/Output/lab10_73XXXXXX.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab10_73XXXXXX.pdf", printer "PDF".
 95         /* create a pdf file */
 96         
 97         
@@ -129,7 +129,7 @@ NOTE: There were 6 observations read from the data set WORK.MY_VS.
 142        
 143        
 144        ods pdf close;/*close the pdf file*/
-NOTE: ODS PDF printed 3 pages to /home/u63982087/BIOS511/Output/lab10_730784042.pdf.
+NOTE: ODS PDF printed 3 pages to /home/u63982087/BIOS511/Output/lab10_73XXXXXX.pdf.
 145        ods _all_ close;
 146        
 147        proc printto; run;
