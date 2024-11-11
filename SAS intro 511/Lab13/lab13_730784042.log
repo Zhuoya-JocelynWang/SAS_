@@ -28,8 +28,8 @@ NOTE: PROCEDURE PRINTTO used (Total process time):
 81            Purpose : This program is a practice of DATA Step Statements
 82         **************************************************************************************/
 83         
-84         %put %upcase(no)TE: Program being run by 730784042;
-NOTE: Program being run by 730784042
+84         %put %upcase(no)TE: Program being run by 73XXXXXX;
+NOTE: Program being run by 73XXXXXX
 85         options nofullstimer;
 86         
 87         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
@@ -39,8 +39,8 @@ NOTE: Libref CLASSLIB was successfully assigned as follows:
       Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
 88         run; /*access a libref in class folder*/
 89         
-90         ods pdf file = '/home/u63982087/BIOS511/Output/lab13_730784042.pdf' startpage = yes;
-NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab13_730784042.pdf", printer "PDF".
+90         ods pdf file = '/home/u63982087/BIOS511/Output/lab13_73XXXXXX.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab13_73XXXXXX.pdf", printer "PDF".
 91         /* create a pdf file */
 92         
 93         
@@ -202,7 +202,7 @@ NOTE: PROCEDURE FREQ used (Total process time):
 179        
 180        
 181        ods pdf close;/*close the pdf file*/
-NOTE: ODS PDF printed 4 pages to /home/u63982087/BIOS511/Output/lab13_730784042.pdf.
+NOTE: ODS PDF printed 4 pages to /home/u63982087/BIOS511/Output/lab13_73XXXXXX.pdf.
 182        ods _all_ close;
 183        
 184        proc printto; run;
