@@ -28,8 +28,8 @@ NOTE: PROCEDURE PRINTTO used (Total process time):
 80            Purpose : This program is designed to practice generating reports with proc report
 81         **************************************************************************************/
 82         
-83         %put %upcase(no)TE: Program being run by 730784042;
-NOTE: Program being run by 730784042
+83         %put %upcase(no)TE: Program being run by 73XXXXXX;
+NOTE: Program being run by 73XXXXXX
 84         options nofullstimer;
 85         
 86         
