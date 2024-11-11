@@ -29,8 +29,8 @@ NOTE: PROCEDURE PRINTTO used (Total process time):
 83         **************************************************************************************/
 84         
 85         
-86         %put %upcase(no)TE: Program being run by 730784042;
-NOTE: Program being run by 730784042
+86         %put %upcase(no)TE: Program being run by 73XXXXXX;
+NOTE: Program being run by 73XXXXXX
 87         options nofullstimer;
 88         
 89         
@@ -40,8 +40,8 @@ NOTE: Libref CLASSLIB was successfully assigned as follows:
       Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
 91         run; /*access a libref in class folder*/
 92         
-93         ods pdf file = '/home/u63982087/BIOS511/Output/lab18_730784042.pdf' startpage = yes;
-NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab18_730784042.pdf", printer "PDF".
+93         ods pdf file = '/home/u63982087/BIOS511/Output/lab18_73XXXXXX.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab18_73XXXXXX.pdf", printer "PDF".
 94         /* create a pdf file */
 95         
 96         
@@ -236,7 +236,7 @@ NOTE: PROCEDURE PRINT used (Total process time):
 216        
 217        
 218        ods pdf close;/*close the pdf file*/
-NOTE: ODS PDF printed 7 pages to /home/u63982087/BIOS511/Output/lab18_730784042.pdf.
+NOTE: ODS PDF printed 7 pages to /home/u63982087/BIOS511/Output/lab18_73XXXXXX.pdf.
 219        ods _all_ close;
 220        
 221        proc printto; run;
