@@ -1,0 +1,204 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.01 seconds
+      system cpu time     0.00 seconds
+      memory              281.06k
+      OS Memory           19104.00k
+      Timestamp           11/11/2024 03:03:40 PM
+      Step Count                        24  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     22
+      Page Swaps                        0
+      Voluntary Context Switches        10
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+      
+
+71         
+72         /************************************************************************************
+73            Project: BIOS 511
+74         
+75            Program Name: Lab21
+76         
+77            Author : Jocelyn(Zhuoya) Wang
+78         
+79            Date Created: 2024.11.11
+80         
+81            Purpose : This program is a practice of Data Transpose
+82         **************************************************************************************/
+83         
+84         %put %upcase(no)TE: Program being run by 730784042;
+NOTE: Program being run by 730784042
+85         options nofullstimer;
+86         
+87         
+88         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
+NOTE: Libref CLASSLIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
+89         run; /*access a libref in class folder*/
+90         
+91         ods pdf file = '/home/u63982087/BIOS511/Output/lab21_730784042.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab21_730784042.pdf", printer "PDF".
+92         /* create a pdf file */
+93         
+94         /***** Question 1 *****/
+95         proc sort data = classlib.ae out = ae;
+96            by AESOC AETERM; /*sort data*/
+97         run;
+
+NOTE: There were 1177 observations read from the data set CLASSLIB.AE.
+NOTE: The data set WORK.AE has 1177 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+2                                                          The SAS System                      Monday, November 11, 2024 10:03:40 AM
+
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+98         
+99         Data q1_data;
+100          set ae;/*create new dataset from ae*/
+101          by AESOC AETERM;
+102        
+103          array severity_level{3} mild moderate severe; /*create three variables*/
+104          retain  mild moderate severe; /*retain the three variables*/
+105        
+106          if first.aeterm then do;/*only keep the first aeterm*/
+107             mild = 0;
+108             moderate = 0;
+109             severe = 0;
+110          end;/*set original value*/
+111        
+112          if aesev = "MILD" then mild +1; /* compute the value of the variable mild based on aesev*/
+113          else if aesev = "MODERATE" then moderate +1;/*compute moderate based on aesev*/
+114          else if aesev = "SEVERE" then severe +1;/*compute severe based on aesev*/
+115        
+116          if last.aeterm then output;/*mark last aeterm for output*/
+117          keep aeterm aesoc mild moderate severe;/*only keep these vars*/
+118        run;
+
+NOTE: There were 1177 observations read from the data set WORK.AE.
+NOTE: The data set WORK.Q1_DATA has 284 observations and 5 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+119        
+120        
+121        /***** Question 2 *****/
+122        proc print data = q1_data; /*print the observation of subset
+123                                            where aeterm is Jaw Tightness*/
+124          where aeterm = "Jaw Tightness";
+125          title "Q2: Count of Severity for AE Term of Jaw Tightness";
+126        run;
+
+NOTE: There were 1 observations read from the data set WORK.Q1_DATA.
+      WHERE aeterm='Jaw Tightness';
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+127        
+128        
+129        /***** Question 3 *****/
+130        proc sort data = classlib.lb out = lb;
+131          by USUBJID VISITNUM VISIT; /*sort data*/
+132        run;
+
+NOTE: There were 7224 observations read from the data set CLASSLIB.LB.
+NOTE: The data set WORK.LB has 7224 observations and 12 variables.
+3                                                          The SAS System                      Monday, November 11, 2024 10:03:40 AM
+
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+133        
+134        data q3_data;
+135          set lb; /*create new from lb dataset*/
+136          by USUBJID VISITNUM VISIT;
+137        
+138          retain ALB CA HCT;/*retain the three varaibles*/
+139        
+140          if lbtestcd = "ALB" then ALB = lbstresn; /*Apply value of lbstresn for ALB variable
+141                                                       when lbtestcd is ALB*/
+142          else if lbtestcd = "CA" then CA = lbstresn; /*Apply value of lbstresn for CA variable
+143                                                       when lbtestcd is CA*/
+144        
+145        
+146          else if lbtestcd = "HCT" then HCT = lbstresn;/*Apply value of lbstresn for HCT variable
+147                                                       when lbtestcd is HCT*/
+148        
+149          if Last.VISITNUM then output; /*mark the last visitnum for output*/
+150        
+151          keep USUBJID VISITNUM VISIT ALB CA HCT; /*keep these variables*/
+152        run;
+
+NOTE: There were 7224 observations read from the data set WORK.LB.
+NOTE: The data set WORK.Q3_DATA has 2408 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+153        
+154        
+155        /***** Question 4 *****/
+156        proc print data = q3_data;
+157         where usubjid = "ECHO-016-008"; /*print the result for subject ECHO-016-008*/
+158         title "Q4:Data Summary for Subject with ID ECHO-016-008";
+159        run;
+
+NOTE: There were 4 observations read from the data set WORK.Q3_DATA.
+      WHERE usubjid='ECHO-016-008';
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+160        
+161        /***** Question 5 *****/
+162        data q5_data;
+163          set classlib.TUMOR1; /*create new from tumor1 data*/
+164        
+165          output; /*output the orginal obs*/
+166          trt = "Z"; /*create a new obs =Z for each trt obs*/
+167          output;/*output the result*/
+168        run;
+
+4                                                          The SAS System                      Monday, November 11, 2024 10:03:40 AM
+
+NOTE: There were 560 observations read from the data set CLASSLIB.TUMOR1.
+NOTE: The data set WORK.Q5_DATA has 1120 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+169        
+170        /***** Question 6 *****/
+171        proc freq data = q5_data;
+172          tables trt*gender; /*compute the table of treatment by gender*/
+173          title "Q6: Table of Number of patients for Each Treatment by Gender";
+174        run;
+
+NOTE: There were 1120 observations read from the data set WORK.Q5_DATA.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+175        
+176        
+177        
+178        ods pdf close;/*close the pdf file*/
+NOTE: ODS PDF printed 3 pages to /home/u63982087/BIOS511/Output/lab21_730784042.pdf.
+179        ods _all_ close;
+180        
+181        proc printto; run;
+
