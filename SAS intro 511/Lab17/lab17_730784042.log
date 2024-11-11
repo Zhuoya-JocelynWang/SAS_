@@ -28,8 +28,8 @@ NOTE: PROCEDURE PRINTTO used (Total process time):
 82            Purpose : This program is a practice of DO-loops
 83         **************************************************************************************/
 84         
-85         %put %upcase(no)TE: Program being run by 730784042;
-NOTE: Program being run by 730784042
+85         %put %upcase(no)TE: Program being run by 73XXXXXX;
+NOTE: Program being run by 73XXXXXX
 86         options nofullstimer;
 87         
 88         libname classlib '~/my_shared_file_links/u49231441/Data' access = readonly;
@@ -38,8 +38,8 @@ NOTE: Libref CLASSLIB was successfully assigned as follows:
       Physical Name: /home/u63982087/my_shared_file_links/u49231441/Data
 89         run; /*access a libref in class folder*/
 90         
-91         ods pdf file = '/home/u63982087/BIOS511/Output/lab17_730784042.pdf' startpage = yes;
-NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab17_730784042.pdf", printer "PDF".
+91         ods pdf file = '/home/u63982087/BIOS511/Output/lab17_73XXXXXX.pdf' startpage = yes;
+NOTE: Writing ODS PDF output to DISK destination "/home/u63982087/BIOS511/Output/lab17_73XXXXXX.pdf", printer "PDF".
 92         /* create a pdf file */
 93         
 94         
@@ -178,7 +178,7 @@ NOTE: DATA statement used (Total process time):
 159        
 160        
 161        ods pdf close;/*close the pdf file*/
-NOTE: ODS PDF printed 3 pages to /home/u63982087/BIOS511/Output/lab17_730784042.pdf.
+NOTE: ODS PDF printed 3 pages to /home/u63982087/BIOS511/Output/lab17_73XXXXXX.pdf.
 162        ods _all_ close;
 163        
 164        proc printto; run;
