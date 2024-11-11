@@ -26,7 +26,7 @@ NOTE: PROCEDURE PRINTTO used (Total process time):
 78            Purpose : This program is designed to practice Library and GlobalStatements */
 79         
 80         %put %upcase(no)TE: Program being run by 73XXXXXX;
-NOTE: Program being run by 730784042
+NOTE: Program being run by 73XXXXXX
 81         options nofullstimer;
 82         
 83         /*4*/
